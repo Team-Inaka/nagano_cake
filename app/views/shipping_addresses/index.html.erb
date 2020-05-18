@@ -1,0 +1,79 @@
+<% if @shipping_address.errors.any? %>
+<div id="error_explanation">
+	<h2><%= @shipping_address.errors.count %>つのエラーがあります。空欄には入力してください。</h2>
+	<ul>
+		<% @shipping_address.errors.full_messages.each do |m| %>
+		<li><%= m %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="body">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<% if flash[:notice] %>
+					<div class="flash">
+						<%= flash[:notice] %>
+					</div>
+				<% end %>
+				<div class="col-xs-3">
+					<h3 style="background-color: gray">&emsp;&ensp;配送先登録/一覧</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="table table-borderless">
+							<%= form_for(@shipping_address) do |f| %>
+							<div class="field row">
+								<label class="col-xs-4" for="zipcode">郵便番号(ハイフンなし)</label>
+								<div class="col-xs-offset-1"><%= f.text_field :zipcode %>
+								</div>
+							</div>
+							<div class="field row">
+								<label class="col-xs-4" for="address">住所</label>
+								<div class="col-xs-offset-1"><%= f.text_field :address, size: "40" %>
+								</div>
+							</div>
+							<div class="field row">
+								<label class="col-xs-4" for="name">宛名</label>
+								<div class="col-xs-offset-1"><%= f.text_field :name %>
+								</div>
+								<div class="col-xs-offset-10">
+									<%= f.submit "登録する", class: "btn btn-success" %>
+								</div>
+							</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-9">
+					<table class="table table-hover table-bordered">
+						<thead>
+							<tr class="active">
+								<th class="col-xs-1">郵便番号</th>
+								<th class="col-xs-3">住所</th>
+								<th class="col-xs-3">宛名</th>
+								<th class="col-xs-2"></th>
+							</tr>
+						</thead>
+						<% @shipping_addresses.each do |ship| %>
+						<tbody>
+							<tr>
+								<td><%= ship.zipcode %></td>
+								<td><%= ship.address %></td>
+								<td><%= ship.name %></td>
+								<td><%= link_to "編集する", edit_shipping_address_path(ship.id), class: "btn btn-primary" %>&emsp;<%= link_to "削除する", shipping_address_path(ship.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %></td>
+							</tr>
+						</tbody>
+						<% end %>
+					</table>
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
