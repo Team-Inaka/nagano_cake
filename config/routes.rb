@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
   sessions: 'admins/sessions'
 }
+  
+  root "home#top"
+
+  resources :admin_products,except:[:destroy]
+  resources :admin_genres,only:[:index,:edit,:update,:create]
 
   # get 'home#top'
 
