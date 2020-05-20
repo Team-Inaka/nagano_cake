@@ -11,14 +11,14 @@ Rails.application.routes.draw do
   sessions: 'admins/sessions'
 }
 
-  root "home#top"
+  root "homes#top"
 
-  namespace :admin do
+  namespace :admins do
       resources :genres, only:[:index,:edit,:update,:create]
   end
 
   resources :products, only: [:index, :show]
-  namespace :admin do
+  namespace :admins do
       resources :products, except: [:destroy]
   end
 
