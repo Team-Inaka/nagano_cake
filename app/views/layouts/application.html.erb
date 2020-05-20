@@ -13,10 +13,11 @@
     <header>
   <nav>
     <ul>
-      <!-- if文で管理者か会員か顧客かを分けている -->
+      <!-- if文で管理者かユーザーかゲストユーザーかを分けている -->
       <% if costomer_signed_in? %>
         <li>ユーザー</li>
         <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete %></li>
+        <li><%= link_to 'マイページ', costomer_path(current_costomer.id) %></li>
       <% elsif admin_signed_in? %>
         <li>管理者</li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>

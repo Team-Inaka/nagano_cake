@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   sessions: 'costomers/sessions',
   registrations: 'costomers/registrations'
 }
-  resources :costomers
+  resources :costomers, only: [:show]
   put "/costomers/:id/hide" => "costomers#hide", as: 'costomers_hide'
 
   devise_for :admins, controllers: {
