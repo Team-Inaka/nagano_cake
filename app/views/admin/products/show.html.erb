@@ -1,0 +1,59 @@
+<%= render 'layouts/errors', obj: @product %>
+
+<h3>商品詳細</h3>
+<div class="row">
+
+	<!-- ３分割colのインデント強調してます -->
+	 <div class='col-xs-4'>
+		  <div class="form-group row">
+			<%= attachment_image_tag @product, :image, :fill, 300, 300, fallback: "noimage.svg", size:'300x300'%>
+		  </div>
+	 </div>
+
+	 <div class='col-xs-5'>
+		   <div class="form-group row">
+			 <label class="col-sm-3">商品名</label>
+		      <div class="col-sm-9">
+			    <%= @product.name %>
+			  </div>
+		    </div>
+
+		   <div class="form-group row">
+			  <label class="col-sm-3">商品説明</label>
+			   <div class="col-sm-9">
+			     <%= @product.explain %>
+			  </div>
+		   </div>
+					
+		   <div class="form-group row">
+			  <label class="col-sm-3">ジャンル</label>
+			   <div class="col-sm-9">
+			   	  <%= @product.genre.name %>
+			   </div>
+		   </div>
+
+			<div class="form-group row">
+			  <label class="col-sm-3">税抜価格</label>
+			   <div class="col-sm-9">
+			      <%= @product.notax_price %>円
+			   </div>
+			</div>
+
+			<div class="form-group row">
+			  <!-- 販売ステータスのセレクトボックス -->
+			  <label class="col-sm-3">販売ステータス</label>
+			   <div class="col-sm-9">
+			   	  <%= (@product.is_valid==true) ? "販売中" : "売切れ" %>
+			   </div>
+			 </div>
+	 </div>
+
+	<div class='col-xs-3'>
+			<div class="box">
+					<div class="bottom-text">
+						<%= link_to '編集する', edit_admin_product_path(@product), class: "btn-sm btn-success edit" %>
+					</div>
+			</div>
+    </div>
+
+</div>

@@ -53,3 +53,11 @@ header{
 	text-align:right;
 	padding-top:0px;
 }
+.box {
+        position: relative;
+        height: 300px;
+}
+.bottom-text {
+        position: absolute;
+        bottom: 0;
+}
