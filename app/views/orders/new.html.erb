@@ -4,14 +4,21 @@
             <%= form_for @order, url: orders_confirm_path  do |f| %>
                 <h3>注文情報入力</h3>
                 <h3>支払い方法</h3>
+                
                 <%= f.radio_button :pay_method, "クレジットカード", label: "クレジットカード" %>クレジットカード<br>
                 <%= f.radio_button :pay_method, "銀行振り込み", label: "銀行振り込み" %>銀行振り込み
             
 
             
                 <h2>お届け先</h2>
-                <label><%= f.radio_button :deliver, "ご自身の住所" %>ご自身の住所</label><br>
+                
+                <%= @costomer.zipcode %><br>
+                <%= @costomer.address %><br>
+                <%= @costomer.family_name %>
+                <%= @costomer.middle_name %><br>
+
                 <label><%= f.radio_button :deliver, "登録済住所から選択" %>登録済住所から選択</label><br>
+                
                 <label><%= f.radio_button :deliver, "新しいお届け先" %>新しいお届け先</label><br>
                 <%= f.label :delivery_zipcode, "郵便番号（ハイフンなし）" %>
                 <%= f.number_field :delivery_zipcode %><br>

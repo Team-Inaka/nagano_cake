@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_051403) do
+ActiveRecord::Schema.define(version: 2020_05_20_134838) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,8 +45,18 @@ ActiveRecord::Schema.define(version: 2020_05_18_051403) do
     t.index ["reset_password_token"], name: "index_costomers_on_reset_password_token", unique: true
   end
 
+  create_table "ordered_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "number"
+    t.integer "production_status", default: 0
+    t.integer "price"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
+    t.integer "costomer_id"
     t.string "delivery_address"
     t.integer "pay_method"
     t.integer "order_status"

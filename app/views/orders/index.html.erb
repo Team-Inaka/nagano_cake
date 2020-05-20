@@ -1,5 +1,5 @@
 <h3>注文履歴一覧</h3>
-<table class="table-bordered">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>注文日</th>
@@ -11,13 +11,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        
+            <% @orders.each do |order| %>
+                <tr>
+                    <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+                    <td><%= order.delivery_zipcode %><%= order.delivery_address %><%= order.address_name %></td>
+                    
+                                
+                    </td>
+                    <td><%= order.billing_amount %></td>
+                    <td><%= order.order_status %></td>
+                    <td><%= link_to "表示する",order_path(order) %> </td>
+                </tr>
+            <% end %>
     </tbody>
 </table>
