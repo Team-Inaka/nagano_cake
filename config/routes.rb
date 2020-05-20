@@ -38,7 +38,6 @@ resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
   # resources :admin_ordered_products,:only[:index,:show]
   # patch "admin_ordered_products/:id/order_update" => "admin_ordered_products#order_update"
   # patch "admin_ordered_products/:id/production_update" => "admin_ordered_products#production_update"
->>>>>>> develop
 
 end
 

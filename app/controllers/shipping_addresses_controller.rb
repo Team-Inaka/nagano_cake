@@ -1,13 +1,13 @@
 class ShippingAddressesController < ApplicationController
-
+		before_action :authenticate_costomer!
 	def index
-		@shipping_addresses = ShippingAddress.all
+		@shipping_addresses = current_costomer.ShippingAddress.all
 		@shipping_address = ShippingAddress.new
 	end
 
 	def create
 		@shipping_address = ShippingAddress.new(shipping_address_params)
-
+		@shipping_address.costomer_id = current_costomer.id
 		if @shipping_address.save
 			flash[:notice] = "shipping_address was successfully created."
 			redirect_to shipping_addresses_path
@@ -19,7 +19,7 @@ class ShippingAddressesController < ApplicationController
 
 	def update
 		@shipping_address = ShippingAddress.find(params[:id])
-
+		@shipping_address.costomer_id = current_costomer.id
 		if @shipping_address.update(shipping_address_params)
 			flash[:notice] = "shipping_address was successfully updated."
 			redirect_to shipping_addresses_path
@@ -47,7 +47,7 @@ class ShippingAddressesController < ApplicationController
  private
 
     def shipping_address_params
-        params.require(:shipping_address).permit(:customer_id, :zipcode, :name, :address)
+        params.require(:shipping_address).permit(:costomer_id, :zipcode, :name, :address)
     end
 
 end
