@@ -10,7 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_05_18_051403) do
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "costomer_id"
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "costomers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "family_name"
+    t.string "middle_name"
+    t.string "family_name_kana"
+    t.string "middle_name_kana"
+    t.string "address"
+    t.string "zipcode"
+    t.string "phone_number"
+    t.boolean "is_withdraw"
+    t.index ["email"], name: "index_costomers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_costomers_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "delivery_address"
+    t.integer "pay_method"
+    t.integer "order_status"
+    t.string "delivery_zipcode"
+    t.string "address_name"
+    t.integer "postage"
+    t.integer "billing_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "deliver"
   end
 
 end
