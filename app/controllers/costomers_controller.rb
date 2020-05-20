@@ -3,6 +3,10 @@ class CostomersController < ApplicationController
         @costomer = Costomer.find(params[:id])
     end
 
+    def edit
+    	@costomer = Costomer.find(params[:id])
+    end
+
     def hide
         @costomer = Costomer.find(params[:id])
         #is_withdrawカラムにフラグを立てる(defaultはfalse)
