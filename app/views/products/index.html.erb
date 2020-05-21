@@ -1,0 +1,69 @@
+<div class="row">
+
+  <!-- サイドバー要部分テンプレ化 -->
+  <div class='col-xs-3'>
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			ジャンル検索
+		</div>
+		<!-- 後でforeachとlink_toタグに変更 -->
+		<% @genres.each do |genre| %>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<%= link_to genre.name,products_path,class: "product_link" %>
+				</li>
+			</ul>
+		<% end %>
+	</div>
+  </div>
+  <!-- サイドバー終わり-->
+
+  <!-- メインコンテンツ-->
+  <div class='col-xs-9'>
+  	    <div>
+    	<h3>商品一覧</h3>
+		<div class="row" style="padding-bottom:0px">
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					<%= image_tag 'cake5.jpg'%>
+					<div class="caption">
+						<label>商品名</label>
+						<p>¥0,000</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					<%= image_tag 'purin.jpg'%>
+					<div class="caption">
+						<label>商品名</label>
+						<p>¥0,000</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					<%= image_tag 'cake7.jpg'%>
+					<div class="caption">
+						<label>商品名</label>
+						<p>¥0,000</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					<%= image_tag 'yakigashi1.jpg'%>
+					<div class="caption">
+						<label>商品名</label>
+						<p>¥0,000</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+
+  <div style="text-align: center;">
+  	<%= paginate @products %>
+  </div>
+</div>
