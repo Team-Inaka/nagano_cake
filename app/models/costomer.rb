@@ -7,9 +7,9 @@ class Costomer < ApplicationRecord
          has_many :shipping_addresses, dependent: :destroy
 
           # costomerのis_withdrawがfalseならtrueを返す
-          def active_for_authentication?
-              super && (self.is_withdraw == false)
-          end
+          # def active_for_authentication?
+          #     super && (self.is_withdraw == false)
+          # end
 
           # # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
