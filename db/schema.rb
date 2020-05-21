@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_051403) do
+ActiveRecord::Schema.define(version: 2020_05_21_052902) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,17 +45,26 @@ ActiveRecord::Schema.define(version: 2020_05_18_051403) do
     t.index ["reset_password_token"], name: "index_costomers_on_reset_password_token", unique: true
   end
 
-  create_table "shipping_addresses", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "zipcode"
-    t.string "name"
-    t.string "address"
+  create_table "genres", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "shipping_adrresses", force: :cascade do |t|
-    t.integer "customer_id"
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "explain", null: false
+    t.integer "notax_price", null: false
+    t.string "image_id", null: false
+    t.integer "genre_id", null: false
+    t.boolean "is_valid", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer "costomer_id"
     t.string "zipcode"
     t.string "name"
     t.string "address"

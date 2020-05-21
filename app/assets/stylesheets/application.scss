@@ -13,6 +13,53 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
+
+header{
+	.navbar-left{
+		span{
+			font-size:20px;
+			padding-top:10px;
+		}
+	}
+	.navbar-right{
+		li{
+			margin:10px;
+		}
+	}
+}
+
+.body{
+	margin-top:60px;
+	padding-bottom:70px;
+}
+.jumbotron { 
+	background:url(cake1.jpg) center no-repeat;
+	background-size: cover;
+}
+.site-description{
+	margin-bottom:20px;
+	padding-top:0px;
+}
+.thumbnail{
+	.caption{
+		padding-top:5px;
+	}
+	border: 0px none;
+	margin-bottom:0px;
+}
+.more_item{
+	text-align:right;
+	padding-top:0px;
+}
+.box {
+        position: relative;
+        height: 300px;
+}
+.bottom-text {
+        position: absolute;
+        bottom: 0;
+}
+
