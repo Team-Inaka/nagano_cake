@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   root "homes#top"
 
-<<<<<<< HEAD
+
   # resources :customers
   # get "customers/confirm" => "customers#confirm"
   # patch "customers/:id/hide" => "customers#hide"
@@ -52,13 +52,12 @@ Rails.application.routes.draw do
   # resources :admin_ordered_products,:only[:index,:show]
   # patch "admin_ordered_products/:id/order_update" => "admin_ordered_products#order_update"
   # patch "admin_ordered_products/:id/production_update" => "admin_ordered_products#production_update"
-=======
+
   resources :products, only: [:index, :show]
   namespace :admins do
       resources :genres, only:[:index,:edit,:update,:create]
       resources :products, except: [:destroy]
   end
 
->>>>>>> b231c83... Merge pull request #9 from Team-Inaka/omatsu
 end
 
