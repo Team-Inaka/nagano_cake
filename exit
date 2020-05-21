@@ -1,0 +1,131 @@
+commit bf6476dfddac07cd8f6572ba1a41c279719941ce
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 15:05:30 2020 +0000
+
+    karacommit
+
+commit 0b36ff471aabc9be25c075a2980a994cd386cb6c
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 14:43:06 2020 +0000
+
+    [modify_save]
+
+commit 393bf42713351a6d6556b01e1c5f98bbec4eed66
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 13:35:34 2020 +0000
+
+    karacommit
+
+commit d3feb14b501d37742f78abd55f91251e822f2aea
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 13:17:42 2020 +0000
+
+    [modify]homesController
+
+commit dd4037aaea98ee87b036ee59131d1bb50c91e952
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 12:43:45 2020 +0000
+
+    [compleate]admin/product#new,create,show,genre#edit
+
+commit 040d8b63c6db122d80d3322154e9e439ad4742ef
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Wed May 20 12:33:26 2020 +0000
+
+    re commit
+
+commit f35097dc889c17e906dc73c913a2c3d9fa4b8acb
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Tue May 19 04:34:35 2020 +0000
+
+    [仮complete]admin_genres#edit,update
+
+commit 4c9d879ecabe4643e0b99929155db7315f8bd3c0
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Tue May 19 03:37:54 2020 +0000
+
+    [仮complete]admin_gunres#index,home#top
+
+commit 927bf5566ec12beee312a5f63ae0863edc666c70
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Mon May 18 15:37:31 2020 +0000
+
+    develop first pull
+
+commit b46ddc8e34aacd522e9572a150cf4e92d1cb376a
+Merge: 46851de aac3bcb
+Author: sss-o2 <62799261+sss-o2@users.noreply.github.com>
+Date:   Mon May 18 21:32:08 2020 +0900
+
+    Merge pull request #5 from Team-Inaka/oda
+    
+    カスタマー
+
+commit aac3bcb1fc4648c72ed798e13d6c389c6f340259
+Author: kentoda <kent19950811@gmail.com>
+Date:   Mon May 18 08:55:47 2020 +0000
+
+    修正
+
+commit 4424a6fe4583992a0f6d6e97c9f8fcafe1286d1b
+Author: 小田健人 <odakento@odataketonoMacBook-Air.local>
+Date:   Mon May 18 12:19:15 2020 +0900
+
+    カスタマー
+
+commit 46851deefa94b80f48844452de15324b390c12c3
+Merge: 0f95505 0b364cd
+Author: kentoda <62789716+kentoda@users.noreply.github.com>
+Date:   Sun May 17 14:52:14 2020 +0900
+
+    Merge pull request #4 from Team-Inaka/revert-3-oda
+    
+    Revert "こんにちは"
+
+commit 0b364cdbca07590c88a532b03f0289810f23c486
+Author: kentoda <62789716+kentoda@users.noreply.github.com>
+Date:   Sun May 17 11:46:43 2020 +0900
+
+    Revert "こんにちは"
+
+commit 0f9550585754df1086693628198a5adab4a14d7b
+Merge: 609b714 fccd398
+Author: kentoda <62789716+kentoda@users.noreply.github.com>
+Date:   Sun May 17 11:41:21 2020 +0900
+
+    Merge pull request #3 from Team-Inaka/oda
+    
+    こんにちは
+
+commit fccd39833906fbea89703a821321af0aa515126d
+Author: kentoda <kent19950811@gmail.com>
+Date:   Sun May 17 02:17:37 2020 +0000
+
+    こんにちは
+
+commit 609b71433d90c501332e8a71215c9b5df94fd1ed
+Merge: d13cdd1 c92f0de
+Author: sss-o2 <62799261+sss-o2@users.noreply.github.com>
+Date:   Sat May 16 22:00:25 2020 +0900
+
+    Merge pull request #2 from Team-Inaka/omatsu
+    
+    routes first add
+
+commit c92f0debb3b9102872c2ef72196f283ff5eac9d5
+Author: “sss-o2” <“o.matsu.youser12@gmail.com”>
+Date:   Sat May 16 12:44:38 2020 +0000
+
+    routes first add
+
+commit d13cdd1cbd24eb53dbc359ffcad1d7c446312417
+Author: taichi-sato36 <energy.sato36@gmail.com>
+Date:   Sat May 16 11:53:33 2020 +0000
+
+    develop-commit
+
+commit f16bea28097fb0b3f6f45e6ef86cdd772a90a598
+Author: taichi-sato36 <energy.sato36@gmail.com>
+Date:   Sat May 16 11:51:16 2020 +0000
+
+    first-commit
