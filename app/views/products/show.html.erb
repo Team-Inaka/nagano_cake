@@ -1,7 +1,39 @@
 <div class="row">
 
-  <!-- サイドバー要部分テンプレ化 -->
-  <div class='col-xs-3'>
-  	商品詳細ページです
+  <!-- ジャンル検索 -->
+  <%= render '/genre_search', genres: @genres %>
+
+  <!-- メインコンテンツ-->
+  <div class='col-xs-9'>
+   <div class="row">
+  	<div class='col-xs-6'>
+  		<%= attachment_image_tag @product, :image,:fill, 400, 300,fallback: "noimage.svg" %>
+  	</div>
+
+  	<div class='col-xs-6'>
+  		<div class="form-group row">
+			<h3><%= @product.name %></h3>
+		</div>
+
+		<div class="form-group row">
+			<%= @product.explain %>
+		</div>
+
+		<div class="form-group row">
+			<!-- add_comma：カンマ区切り（application_helper.rbに記載） -->
+			<!-- addTax：税込価格 -->
+			￥<%= add_comma(addTax(@product.notax_price)) %>(税込)
+		</div>
+
+		<!-- 販売ステータスのセレクトボックス -->
+		<label class="col-sm-3">販売ステータス</label>
+			   <div class="col-sm-9">
+				  <%= f.select :is_valid, [["販売中", true],["売切れ", false]], include_blank: "選択して下さい" %>
+			   </div>
+			 </div>
+	</div>
+
+   </div>
   </div>
+
 </div>

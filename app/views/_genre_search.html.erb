@@ -1,0 +1,14 @@
+  <div class='col-xs-3'>
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			ジャンル検索
+		</div>
+		<% genres.each do |genre| %>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<%= link_to genre.name,products_path(genre_id:genre.id),class: "product_link" %>
+				</li>
+			</ul>
+		<% end %>
+	</div>
+  </div>

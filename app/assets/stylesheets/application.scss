@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 header{
 	.navbar-left{
 		span{
@@ -60,4 +61,11 @@ header{
 .bottom-text {
         position: absolute;
         bottom: 0;
+
+}
+.main{
+	
+}
+.side{
+	height:100%;
 }
