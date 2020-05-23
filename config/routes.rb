@@ -15,6 +15,7 @@ end
   devise_for :admins, controllers: {
   sessions: 'admins/sessions'
 }
+resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
 
   root "homes#top"
 
