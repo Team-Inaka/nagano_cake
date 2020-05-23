@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   sessions: 'costomers/sessions',
   registrations: 'costomers/registrations'
 }
+  devise_scope :costomer do 
+  post 'cosotmers/sign_up/confirm' => 'costomers/registrations#confirm'
+  
+end
+
   resources :costomers, only: [:show]
   put "/costomers/:id/hide" => "costomers#hide", as: 'costomers_hide'
 

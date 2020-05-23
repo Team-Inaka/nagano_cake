@@ -12,7 +12,14 @@ class Costomers::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-   
+  def confirm
+      @costomer = Costomer.new(costomer_params)
+    if @costomer.valid?
+      render :action => 'confirm'
+    else
+     render :action => 'new'
+    end
+  end
 
 
   # POST /resource
@@ -47,14 +54,18 @@ class Costomers::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :middle_name, :family_name_kana, :middle_name_kana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :middle_name, :family_name_kana, :middle_name_kana, :zipcode, :address, :phone_number])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
-
+  
+  private
+  def costomer_params
+    params.require(:costomer).permit(:family_name, :middle_name, :family_name_kana, :middle_name_kana, :zipcode, :address, :phone_number, :email, :password, :password_confirmation)
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
