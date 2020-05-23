@@ -3,14 +3,22 @@ class Costomer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-          
+
+         has_many :shipping_addresses, dependent: :destroy
+
+          # costomerのis_withdrawがfalseならtrueを返す
+          # def active_for_authentication?
+          #     super && (self.is_withdraw == false)
+          # end
+
           # # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
           #     super && (self.is_withdraw == false)
           # end
 
-          def full_name 
+          def full_name
           	  return self.family_name + self.middle_name
+
           end
 
           def full_name_kana
