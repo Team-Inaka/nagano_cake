@@ -14,7 +14,7 @@ resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
 
   root "homes#top"
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show],param: :id
   namespace :admins do
       resources :genres, only:[:index,:edit,:update,:create]
       resources :products, except: [:destroy]
