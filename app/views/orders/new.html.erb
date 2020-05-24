@@ -18,7 +18,7 @@
                 <%= @costomer.middle_name %><br>
 
                 <label><%= f.radio_button :deliver, "登録済住所から選択" %>登録済住所から選択</label><br>
-                
+                <%= select_tag :shipping_address_id, options_from_collection_for_select(ShippingAddress.all, :id, :abc) %><br>
                 <label><%= f.radio_button :deliver, "新しいお届け先" %>新しいお届け先</label><br>
                 <%= f.label :delivery_zipcode, "郵便番号（ハイフンなし）" %>
                 <%= f.number_field :delivery_zipcode %><br>
