@@ -25,9 +25,9 @@
 							<tbody>
 								<tr>
 									<td><%= item.product.image_id %><%= item.product.name %></td>
-									<td><%= (item.product.notax_price).to_i * 1.08 %></td>
+									<td><%= (item.product.notax_price).to_i * 1.1 %></td>
 									<td><%= item.number %></td>
-									<td><%= (item.total_price).to_i * 1.08 %></td>
+									<td><%= (item.total_price).to_i * 1.1 %></td>
 									<td><%= link_to '削除する', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか?'}%></td>
 								</tr>
 							</tbody>
@@ -42,7 +42,7 @@
 									<tbody class="table table-hover table-bordered">
 										<tr class="active">
 											<td>合計金額</td>
-											<td><%= (@cart.total_price).to_i * 1.08 %></td>
+											<td><%= (@cart.total_price).to_i * 1.1 %></td>
 										</tr>
 									</tbody>
 								</table>

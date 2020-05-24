@@ -12,37 +12,39 @@
 
 	 <div class='col-xs-5'>
 		   <div class="form-group row">
-			 <label class="col-sm-3">商品名</label>
-		      <div class="col-sm-9">
+			 <label class="col-sm-5">商品名</label>
+		      <div class="col-sm-7">
 			    <%= @product.name %>
 			  </div>
 		    </div>
 
 		   <div class="form-group row">
-			  <label class="col-sm-3">商品説明</label>
-			   <div class="col-sm-9">
+			  <label class="col-sm-5">商品説明</label>
+			   <div class="col-sm-7">
 			     <%= @product.explain %>
 			  </div>
 		   </div>
 					
 		   <div class="form-group row">
-			  <label class="col-sm-3">ジャンル</label>
-			   <div class="col-sm-9">
+			  <label class="col-sm-5">ジャンル</label>
+			   <div class="col-sm-7">
 			   	  <%= @product.genre.name %>
 			   </div>
 		   </div>
 
 			<div class="form-group row">
-			  <label class="col-sm-3">税抜価格</label>
-			   <div class="col-sm-9">
-			      <%= @product.notax_price %>円
+			  <label class="col-sm-5">税込価格（税抜価格）</label>
+			   <div class="col-sm-7">
+					<!-- add_comma：カンマ区切り（application_helper.rbに記載） -->
+					<!-- addTax：税込価格 -->
+			      <%= add_comma(@product.notax_price) %>（<%= add_comma(addTax(@product.notax_price)) %>）円
 			   </div>
 			</div>
 
 			<div class="form-group row">
 			  <!-- 販売ステータスのセレクトボックス -->
-			  <label class="col-sm-3">販売ステータス</label>
-			   <div class="col-sm-9">
+			  <label class="col-sm-5">販売ステータス</label>
+			   <div class="col-sm-7">
 			   	  <%= (@product.is_valid==true) ? "販売中" : "売切れ" %>
 			   </div>
 			 </div>
@@ -51,7 +53,7 @@
 	<div class='col-xs-3'>
 			<div class="box">
 					<div class="bottom-text">
-						<%= link_to '編集する', edit_admins_product_path(@product), class: "btn-sm btn-success edit" %>
+						<%= link_to '編集する', edit_admins_product_path(@product), class: "btn btn-primary" %>
 					</div>
 			</div>
     </div>
