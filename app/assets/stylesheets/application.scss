@@ -61,6 +61,13 @@ header{
 .bottom-text {
         position: absolute;
         bottom: 0;
+
+}
+.side{
+	height:100%;
+}
+.soldout{
+	color:#EEEEEE;
 }
 
 @import "bootstrap-sprockets";
