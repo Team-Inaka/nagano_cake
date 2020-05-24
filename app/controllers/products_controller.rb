@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 			@select_text=[1,2,3,4,5,6,7,8,9,10]
 			@b_name="カートに追加する"
 		else
-			@select_text="個数選択"
+			select_text="個数選択"
 			@b_name="売り切れ"
 		end
 		@producted=Product.new# テスト用変数 後で消す

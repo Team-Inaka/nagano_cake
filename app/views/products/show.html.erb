@@ -32,7 +32,7 @@
 						<%= f.select :is_valid, @select_text, include_blank: "個数選択" %>
 						<%= f.submit @b_name, class: 'btn btn-primary'%>
 					<% else %><!-- 販売ステータスが売り切れの時 -->
-						<%= f.select :is_valid,[@select_text],{},disabled: true %>
+						<%= f.select :is_valid,[@select_text],{},disabled: true,class: 'soldout' %>
 						<%= f.submit @b_name, class: 'btn btn-primary',disabled: true %>
 					<% end %>
 				<% end %>
