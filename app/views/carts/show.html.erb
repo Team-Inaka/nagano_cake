@@ -3,10 +3,10 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="col-xs-3">
-					<h3 style="background-color: gray">ショッピングカート🛒</h3>
+					<h3 style="background-color: gray">&ensp;&thinsp;&thinsp;ショッピングカート</h3>
 				</div>
-				<div class="col-xs-12">
-					<%= link_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger' %>
+				<div class="col-xs-offset-4 col-xs-5">
+					<%= link_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger active' %>
 				</div>
 			</div>
 				<div class="row">
@@ -14,21 +14,21 @@
 						<table class="table table-hover table-bordered">
 							<thead>
 								<tr class="active">
-									<th class="">商品名</th>
-									<th class="col-xs-3">単価(税込)</th>
-									<th class="col-xs-3">数量</th>
-									<th class="col-xs-2">小計</th>
-									<th></th>
+									<th class="col-xs-3">商品名</th>
+									<th class="col-xs-1">単価(税込)</th>
+									<th class="col-xs-1">数量</th>
+									<th class="col-xs-1">小計</th>
+									<th class="col-xs-1"></th>
 								</tr>
 							</thead>
 							<% @cart.cart_items.each do |item| %>
 							<tbody>
 								<tr>
-									<td><%= item.product.image_id %><%= item.product.name %></td>
-									<td><%= (item.product.notax_price).to_i * 1.1 %></td>
+									<td><%= attachment_image_tag item.product, :image,:fill, 5, 5,fallback: "noimage.svg" %><%= item.product.name %></td>
+									<td><%= add_comma((item.product.notax_price * 1.1).to_i) %></td>
 									<td><%= item.number %></td>
-									<td><%= (item.total_price).to_i * 1.1 %></td>
-									<td><%= link_to '削除する', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか?'}%></td>
+									<td><%= add_comma((item.total_price * 1.1).to_i) %></td>
+									<td><%= link_to '削除する', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか?'}, class: 'btn btn-danger btn-sm' %></td>
 								</tr>
 							</tbody>
 							<% end %>
@@ -36,17 +36,25 @@
 						<def class="row">
 							<def class="col-xs-12">
 								<def class="col-xs-3">
-									<%= link_to '買い物を続ける', products_path, class: "btn btn-success" %>
+									<%= link_to '買い物を続ける', products_path, class: "btn btn-primary active" %>
 								</def>
-								<def class="col-offset-xs-6 col-xs-3"><table>
-									<tbody class="table table-hover table-bordered">
-										<tr class="active">
-											<td>合計金額</td>
-											<td><%= (@cart.total_price).to_i * 1.1 %></td>
-										</tr>
-									</tbody>
-								</table>
+								<def class="col-xs-offset-6 col-xs-3">
+									<table class="table table-hover table-bordered">
+										<thead>
+											<tr></tr>
+											<tr></tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="active">合計金額</td>
+												<td><strong><%= add_comma((@cart.total_price * 1.1).to_i) %>円</strong></td>
+											</tr>
+										</tbody>
+									</table>
 								</def>
+							</def>
+							<def class="col-xs-offset-5">
+								<%= link_to '情報入力に進む', '' ,class: 'btn btn-success btn-lg active' %>
 							</def>
 						</def>
 					</div>

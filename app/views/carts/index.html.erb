@@ -6,34 +6,6 @@
           <h3 style="background-color: gray">ショッピングカート🛒</h3>
         </div>
       </div>
-        <div class="row">
-          <div class="col-xs-9">
-            <table class="table table-hover table-bordered">
-              <thead>
-                <tr class="active">
-                  <th class="">商品名</th>
-                  <th class="col-xs-3">単価(税込)</th>
-                  <th class="col-xs-3">数量</th>
-                  <th class="col-xs-2">小計</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <% @cart.cart_items.each do |item| %>
-              <tbody>
-                <tr>
-                  <td><%= item.product.image_id %><%= item.product.name %></td>
-                  <td><%= (item.product.notax_price).to_i * 1.08 %></td>
-                  <td><%= item.number %></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-              <% end %>
-            </table>
-            <p><%= link_to '買い物を続ける', products_path, class: "btn btn-success" %></p>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>

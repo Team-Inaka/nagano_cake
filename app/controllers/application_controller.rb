@@ -1,14 +1,13 @@
 class ApplicationController < ActionController::Base
 
-	private
-		def current_cart
-			Cart.find(session[:cart_id])
 
-			rescue
-			ActiveRecord::RecordNotFound
-				cart = Cart.create
-				session[:cart_id] = cart.id
-				cart
+	def current_cart
+		unless Cart.exists?(costomer_id: current_costomer.id)
+			@cart = Cart.create(costomer_id: current_costomer.id)
+		else
+			@cart = Cart.find_by(costomer_id: current_costomer.id)
 		end
+	end
+
 
 end
