@@ -36,6 +36,7 @@
 						<%= f.submit @b_name, class: 'btn btn-primary',disabled: true %>
 					<% end %>
 				<% end %>
+				<%= button_to 'カートに入れる', cart_items_path(product_id: @product), class: 'btn btn-primary' %>
 			   </div>
 			</div>
 	    </div>
