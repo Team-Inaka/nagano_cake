@@ -1,3 +1,5 @@
+
+
 class ProductsController < ApplicationController
 	def index
 		@genres =  Genre.where(is_valid: true)
@@ -29,3 +31,4 @@ class ProductsController < ApplicationController
 	end
 	
 end
+
