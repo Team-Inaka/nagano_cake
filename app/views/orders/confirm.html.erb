@@ -13,13 +13,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @ordered_products.each do |ordered_product| %>
+                <%= fields_for(@ordered_product) do |other| %>
+                    <% @cart_items.each do |cart_item| %>
                     <tr>
-                        <td><%= ordered_product.product.name %></td>
-                        <td><%= ordered_product.product.notax_price %></td>
-                        <td><%= ordered_product.number %></td>
-                        <td><%= ordered_product.product.notax_price.to_i * ordered_product.number.to_i %></td>
+                        <%= hidden_field_tag :product_id, cart_item.product.id %>
+                        <td><%= cart_item.product.name %></td>
+                        <td><%= (cart_item.product.notax_price * 1.10).floor %></td>
+                        <%= hidden_field_tag :number, cart_item.number %>
+                        <td><%= cart_item.number %></td>
+                        <td><%= (cart_item.product.notax_price * 1.10).floor.to_i * cart_item.number.to_i %></td>
                     </tr>
+                    <% end %>
                     <% end %>
                 </tbody>
             </table>

@@ -51,9 +51,14 @@
                         <th>小計</th>
                     </tr>
                 </thead>
+                <% @order.ordered_products.each do |ordered_product| %>
                 <tbody>
-                    
+                    <td><%= ordered_product.product.name %></td>
+                    <td><%= (ordered_product.product.notax_price * 1.10).floor %></td>
+                    <td><%= ordered_product.number %></td>
+                    <td><%= (ordered_product.product.notax_price * 1.10).floor.to_i * ordered_product.number.to_i %></td>
                 </tbody>
+                <% end %>
             </table>
         </div>
     </div>
