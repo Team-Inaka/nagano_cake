@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   end
   root "homes#top"
 
+
   # devise_scope :costomer do 
   # post 'cosotmers/sign_up/confirm' => 'costomers/registrations#confirm'
   # end
@@ -62,11 +63,14 @@ Rails.application.routes.draw do
 # }
 
 
-resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
+
 
   
 
-  resources :products, only: [:index, :show]
+  
+
+  # resources :products, only: [:index, :show],params: :id
+
   namespace :admins do
       resources :costomers, only:[:index,:show,:edit,:update]
       resources :genres, only:[:index,:edit,:update,:create]
