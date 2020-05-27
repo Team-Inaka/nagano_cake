@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_053948) do
     t.string "address"
     t.string "zipcode"
     t.string "phone_number"
-    t.boolean "is_withdraw"
+    t.string "is_withdraw"
     t.index ["email"], name: "index_costomers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_costomers_on_reset_password_token", unique: true
   end

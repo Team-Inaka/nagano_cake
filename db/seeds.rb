@@ -17,7 +17,6 @@ products=Product.create(
 	])
 
 
-	products=Product.create(
-	[{name: "イチゴのタルトseed",explain: "イチゴのタルトの商品説明です",notax_price:'3000',image_id: "1999411714de6d903b3e0a2a383fc4b0c9fb0e950086cee799477c2ae546",genre_id:'1',is_valid: true},
-	 {name: "カラフルキャンディseed",explain: "カラフルキャンディの商品説明です",notax_price:'280',image_id:"e745e00f9283d3e446bbd445a1233a4eeeb7f9c7f628c2455471f7190708",genre_id:'4',is_valid: true}
-	])
+ Admin.create(
+	 [{email: "aaa@aa", password:"aaaaaa"}
+	 ])

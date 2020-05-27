@@ -1,4 +1,4 @@
-class ShippingAddressesController < ApplicationController
+class Costomers::ShippingAddressesController < ApplicationController
 		before_action :authenticate_costomer!
 	def index
 		@shipping_addresses = current_costomer.shipping_addresses
