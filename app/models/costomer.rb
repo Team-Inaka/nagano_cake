@@ -5,6 +5,7 @@ class Costomer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :shipping_addresses, dependent: :destroy
+         has_many :carts, dependent: :destroy
 
           # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
