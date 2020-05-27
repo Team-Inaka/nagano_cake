@@ -24,16 +24,21 @@
 		</div>
 		<!-- 個数のセレクトボックス -->
 		<div class="col-sm-9">
-			<div class="box">
+			<div class="product_button_box">
 				<div class="bottom-text">
 				<!--form_for [@cart_item,@product] do |f| -->
 				<%= form_for [@producted] do |f| %>
-					<% if(@product.is_valid==true) %><!-- 販売ステータスが販売中の時カートに追加ボタン表示 -->
-						<%= f.select :is_valid, @select_text, include_blank: "個数選択" %>
-						<%= f.submit @b_name, class: 'btn btn-primary'%>
-					<% else %><!-- 販売ステータスが売り切れの時 -->
-						<%= f.select :is_valid,[@select_text],{},disabled: true,class: 'soldout' %>
-						<%= f.submit @b_name, class: 'btn btn-primary',disabled: true %>
+					<% if costomer_signed_in? %><!-- 会員かどうか -->
+						<% if(@product.is_valid==true) %><!-- 販売ステータスが販売中の時カートに追加ボタン表示 -->
+							<%= f.select :is_valid, @select_num, include_blank: "個数選択",class: 'select_num' %>
+							<%= f.submit "カートに入れる", class: 'btn btn-primary'%>
+						<% else %><!-- 販売ステータスが売り切れの時 -->
+							<%= f.select :is_valid,['個数選択'],{},disabled: true,class: 'soldout select_num' %>
+							<%= f.submit "売り切れ", class: 'btn btn-primary',disabled: true %>
+						<% end %>
+					<% else %><!-- 会員ではない時 -->
+						<%= f.select :is_valid,['個数選択'],{},disabled: true,class: 'soldout select_num' %>
+						<%= f.submit 'カートに入れる', class: 'btn btn-primary',disabled: true %>
 					<% end %>
 				<% end %>
 			   </div>

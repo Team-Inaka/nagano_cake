@@ -8,36 +8,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="sticky-footer.css" rel="stylesheet">
   </head>
 
   <body>
-    <header>
-  <nav>
-    <ul>
-      <!-- if文で管理者かユーザーかゲストユーザーかを分けている -->
-      <% if costomer_signed_in? %>
-        <li>ユーザー</li>
-        <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete %></li>
-        <li><%= link_to 'マイページ', costomer_path(current_costomer.id) %></li>
-      <% elsif admin_signed_in? %>
-        <li>管理者</li>
-        <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-      <% else %>
-        <li>ゲストユーザー</li>
-        <li><%= link_to "新規登録", new_costomer_registration_path %></li>
-        <li><%= link_to "ログイン", new_costomer_session_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+    <div id="wrap">
+    <%= render partial: 'layouts/header' %>
 
-  <div class='body'>
-      <div class='container'>
-
-        <p id="notice"><%= notice %></p>
-        
-    <%= yield %>
+    <div class="container content">
+      <p id="notice"><%= notice %></p>  
+      <%= yield %>
     </div>
   </div>
+
+  <% unless admin_signed_in? %>
+    <%= render partial: 'layouts/footer' %>
+  <% end %>
   
   </body>
 </html>

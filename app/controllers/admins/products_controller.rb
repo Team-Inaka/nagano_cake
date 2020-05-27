@@ -1,4 +1,6 @@
 class Admins::ProductsController < ApplicationController
+	before_action :if_not_admin
+
 	def index
 		@products = Product.page(params[:page]).per(10)
 	end
@@ -36,6 +38,11 @@ class Admins::ProductsController < ApplicationController
 	private
     def product_params
         params.require(:product).permit(:name, :explain, :notax_price,:image,:genre_id,:is_valid)
+    end
+
+    #adminコントローラに全部入れたい
+    def if_not_admin
+    	redirect_to new_admin_session unless admin_signed_in?
     end
 
 end

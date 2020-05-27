@@ -8,4 +8,18 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	attachment :image
 
+	has_many :cart_items
+	before_destroy :referenced_by_cart_item
+
+private
+	def referenced_by_cart_item
+		if cart_items.empty?
+			return true
+		else
+			errors.add(:base,'品目が存在します。')
+			return false
+		end
+	end
+
+
 end
