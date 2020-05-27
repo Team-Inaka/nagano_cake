@@ -16,6 +16,11 @@ class Costomers::CostomersController < ApplicationController
     end
   end
 
+    def withdraw
+        @costomer = current_costomer
+        
+    end
+
     def hide
         @costomer = Costomer.find(params[:id])
         #is_withdrawカラムにフラグを立てる(defaultはfalse)

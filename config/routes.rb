@@ -45,8 +45,8 @@ Rails.application.routes.draw do
     resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :costomers, only: [:show, :edit, :update]
-    get "/costomers/costomer/confirm" => "cosotmers#confirm"
-    # put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
+    get "/costomers/costomer/withdraw" => "costomers#withdraw"
+    put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
   end
   root "homes#top"
 
