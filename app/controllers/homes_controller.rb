@@ -1,4 +1,4 @@
-class Costomers::HomesController < ApplicationController
+class HomesController < ApplicationController
 	def top
 		@genres =  Genre.where(is_valid: true)
 		@products = Product.first(4)

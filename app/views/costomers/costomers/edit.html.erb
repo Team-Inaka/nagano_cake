@@ -1,10 +1,5 @@
-<h3>新規会員登録</h3>
-<table class="table">
-  <thead>
-
-<%= form_for(resource, as: resource_name, url: costomers_sign_up_confirm_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
- <div class="nema_field">
+<%= form_with(model: @costomer, url: costomers_costomer_path(@costomer)) do |f| %>
+  <div class="nema_field">
   <span class="font">名前</span>
   <div class="field">
     <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder:"姓"%>
@@ -50,24 +45,10 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上入力して下さい)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
+  
   <div class="actions">
-    <%= f.submit "確認画面へ" %>
+    <%= f.submit "編集内容を保存する" %>
   </div>
 <% end %>
-<h3>既に登録済みの方</h3>
-<%= render "costomers/shared/links" %>
-</table>
+
+<%= link_to "退会する", costomers_costomers_costomer_confirm_path %>

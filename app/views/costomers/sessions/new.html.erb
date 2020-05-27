@@ -1,21 +1,22 @@
-<div class="box">
-  <div class="box-inner">
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h2>ログイン</h2>
-  <div class="box-email">
-    <%= f.label :email, "Eメール" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="box-password">
-  <div class="a-row">
-  <div class="column-left">
-    <%= f.label :password, "パスワード" %><br />
-  </div>
-  </div>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="title">
+    <h3>会員の方はこちらからログイン</h3>
   </div>
 
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="InputEmail">メールアドレス</label>
+    <div class="col-xs-4">
+    <input type="email" class="form-control" id="InputEmail" placeholder="メールアドレスを入力して下さい">
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="InputPassword">パスワード</label>
+    <div class="col-xs-4">
+    <input type="password" class="form-control" id="InputPassword" placeholder="パスワードを入力して下さい">
+    </div>
+  </div>
+  
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
@@ -23,11 +24,10 @@
     </div>
   <% end %>
 
-  <div class="box-login">
+  <div class="action">
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
+ <h3>登録がお済みでない方</h3>
 
 <%= render "costomers/shared/links" %>
-</div>
-</div>

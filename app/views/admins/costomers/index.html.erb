@@ -1,0 +1,5 @@
+<h2>ユーザー一覧</h2>
+<% @costomers.each do |costomer| %>
+  <p><%= "id: #{costomer.id} name: #{costomer.full_name} email: #{costomer.email} " %><%= link_to "Edit", edit_admins_costomer_path(costomer) %>
+     <%= link_to "Show", admins_costomer_path(costomer) %></p>
+<% end %>

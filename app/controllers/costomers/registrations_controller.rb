@@ -57,6 +57,8 @@ class Costomers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name, :middle_name, :family_name_kana, :middle_name_kana, :zipcode, :address, :phone_number])
   end
 
+  
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
@@ -73,7 +75,8 @@ class Costomers::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    costomer_path(current_costomer)
+    costomers_costomer_path(resource)
+    
   end
 
   # The path used after sign up for inactive accounts.

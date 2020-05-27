@@ -1,0 +1,11 @@
+<h3 class="font">本当に退会しますか？</h3>
+
+<p>退会すると、会員登録情報や<br>
+   これまでの購入履歴が閲覧できなくなります。<br>
+   退会する場合は、「退会する」をクリックして下さい。</p>
+
+<%= link_to "退会しない", costomers_costomer_path(@costomer.id)
+
+<% if costomer_signed_in? && @costomer.id == current_costomer.id %>
+<%= link_to "退会する", costomers_hide_path(current_costomer), method: :put %>
+<% end %>   
