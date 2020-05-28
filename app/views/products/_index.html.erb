@@ -1,0 +1,15 @@
+<div class="row" style="padding-bottom:0px">
+	<% products.each do |product| %>
+		<div class="col-xs-6 col-md-3">
+			<div class="thumbnail">
+				<%= link_to(product_path) do %>
+					<%= attachment_image_tag product, :image,:fill, 550, 400,fallback: "noimage.svg" %>
+				    <div class="caption">
+					     <label><%= product.name %></label>
+						 <p>￥<%= add_comma(addTax(product.notax_price)) %></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

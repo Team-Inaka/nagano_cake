@@ -16,6 +16,7 @@ products=Product.create(
 	 {name: "カラフルキャンディ",explain: "カラフルキャンディの商品説明です",notax_price:'280',image_id:"e745e00f9283d3e446bbd445a1233a4eeeb7f9c7f628c2455471f7190708",genre_id:'4',is_valid: true}
 	])
 
+
  Admin.create(
 	 [{email: "aaa@aa", password:"aaaaaa"}
 	 ])

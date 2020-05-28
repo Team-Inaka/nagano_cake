@@ -26,7 +26,11 @@ class Costomer < ApplicationRecord
           	  self.family_name_kana + self.middle_name_kana
           end
 
+
           enum is_withdraw: {退会:true, 有効:false}
+
+
+  # has_many :orders, dependent: :destroy 
 
 
 end
