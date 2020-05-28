@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
 
+<<<<<<< HEAD
   # resources :cart_items
   # resources :carts, except: [:index]
+=======
+  resources :cart_items
+  resources :carts, except: [:index]
+>>>>>>> origin/develop
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # post "orders/confirm" => "orders#confirm"
   # get "orders/complete" => "orders#complete"
