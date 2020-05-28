@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'homes/top'
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
 # 3782311ff1cdb6778024e8fd68187ebed5c72e4d
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
     sessions: "admins/sessions",
   }
     # devise_scope :admin do
@@ -51,10 +51,12 @@ Rails.application.routes.draw do
     resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :costomers, only: [:show, :edit, :update]
+    resources :cart_items
+    resources :carts, except: [:index]
     get "/costomers/costomer/withdraw" => "costomers#withdraw"
     put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
   end
-  root "homes#top"
+  root "costomers/homes#top"
 
 
   # devise_scope :costomer do 
@@ -81,7 +83,10 @@ Rails.application.routes.draw do
       resources :costomers, only:[:index,:show,:edit,:update]
       resources :genres, only:[:index,:edit,:update,:create]
       resources :products, except: [:destroy]
+      get "admins/homes" => "homes#top"
   end
+
+
 
 end
 

@@ -1,5 +1,28 @@
-<h2>ユーザー一覧</h2>
+<h3 class="font">会員一覧</h3>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>会員ID</th>
+			<th>氏名</th>
+			<th>メールアドレス</th>
+			<th>ステータス</th>
+		</tr>
+    </thead>
+    <tbody>
+     
+
 <% @costomers.each do |costomer| %>
-  <p><%= "id: #{costomer.id} name: #{costomer.full_name} email: #{costomer.email} " %><%= link_to "Edit", edit_admins_costomer_path(costomer) %>
-     <%= link_to "Show", admins_costomer_path(costomer) %></p>
+
+<tr>
+  <th><%= "#{costomer.id}" %></th>
+  <td><%=link_to "#{costomer.family_name} #{costomer.middle_name}",admins_costomer_path(costomer.id) %></td>
+  <td><%= "#{costomer.email}" %></td>
+  <td><%= "#{costomer.is_withdraw} "%></td>
+
+</tr>  
+
 <% end %>
+ 
+	</tbody>
+</table>

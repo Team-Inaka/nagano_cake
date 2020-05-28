@@ -9,7 +9,7 @@
   	<h3><%= (@genre.present?)? "#{@genre.name}一覧（全 #{@products.count} 件）" : "商品一覧（全 #{Product.count} 件）" %></h3>
 
   　<!-- 商品一覧 -->
-  	<%= render 'products/index', products: @products %>
+  	<%= render 'costomers/products/index', products: @products %>
   </div>
 
 </div>

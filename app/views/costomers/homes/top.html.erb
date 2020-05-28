@@ -1,4 +1,4 @@
-<div class="row">
+<<div class="row">
 
   <!-- ジャンル検索 -->
   <%= render '/genre_search', genres: @genres %>
@@ -21,7 +21,7 @@
 
     <%= render 'costomers/products/index', products: @products %>
 
-    <div class="more_item"><%= link_to "もっと見る>", products_path %></div>
+    <div class="more_item"><%= link_to "もっと見る>", @products_path %></div>
 
   </div>
 </div>
