@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :costomers do
+    get 'carts/show'
+  end
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
