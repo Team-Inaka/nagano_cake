@@ -25,6 +25,6 @@ class Costomer < ApplicationRecord
           def full_name_kana
           	  self.family_name_kana + self.middle_name_kana
           end
-
+  has_many :orders, dependent: :destroy 
 
 end

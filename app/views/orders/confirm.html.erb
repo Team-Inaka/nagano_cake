@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-7">
+            <%= form_for @order,url: orders_path do |f| %>
+                <%= f.hidden_field :deliver %>
+                <%= @order.deliver %>
+            <h2>注文情報確認</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価（税込）</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <%= fields_for(@ordered_product) do |other| %>
+                    <% @cart_items.each do |cart_item| %>
+                    <tr>
+                        <%= hidden_field_tag :product_id, cart_item.product.id %>
+                        <td><%= cart_item.product.name %></td>
+                        <td><%= (cart_item.product.notax_price * 1.10).floor %></td>
+                        <%= hidden_field_tag :number, cart_item.number %>
+                        <td><%= cart_item.number %></td>
+                        <td><%= (cart_item.product.notax_price * 1.10).floor.to_i * cart_item.number.to_i %></td>
+                    </tr>
+                    <% end %>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-4">
+            <table class="table table-bordered">
+                <tr>
+                    <th>送料</th>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <th>商品合計</th>
+                    <%= f.hidden_field :billing_amount %>
+                    <td><%= @order.billing_amount %></td>
+                </tr>
+                <tr>
+                    <th>請求金額</th>
+                    <td><%= @order.billing_amount.to_i + 800 %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+            <h2>支払い方法</h2>
+            <%= f.hidden_field :pay_method %>
+            <%= @order.pay_method %>
+            <h2>お届け先</h2>
+            <%= @order2 %>
+            <%= @address2 %><br>
+            <%= f.hidden_field :delivery_zipcode %>
+            <%= @order.delivery_zipcode %><br>
+            <%= f.hidden_field :delivery_address %>
+            <%= @order.delivery_address %><br>
+            <%= f.hidden_field :address_name %>
+            <%= @order.address_name %><br>
+            <%= f.submit "購入を確定する" %>
+            <% end %>
+    </div>
+</div>
