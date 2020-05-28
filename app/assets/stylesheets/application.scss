@@ -16,7 +16,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
 header{
 	.navbar-left{
 		span{
@@ -26,17 +30,28 @@ header{
 	}
 	.navbar-right{
 		li{
-			margin:10px;
+			margin: 5px 5px 5px 10px;
 		}
 	}
 }
+.footer {
+  height: 60px;
+}
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
 
-.body{
-	margin-top:60px;
-	padding-bottom:70px;
+.content{
+	padding-top:80px;
+	padding-bottom:20px;
 }
 .jumbotron { 
-	background:url(cake1.jpg) center no-repeat;
+	background:url(top_cake2.jpg) center no-repeat;
 	background-size: cover;
 }
 .site-description{
@@ -54,9 +69,13 @@ header{
 	text-align:right;
 	padding-top:0px;
 }
-.box {
-        position: relative;
-        height: 300px;
+.product_button_box{
+	position: relative;
+    height: 160px;
+}
+.adm_product_button_box{
+	position: relative;
+    height: 300px;
 }
 .bottom-text {
         position: absolute;
@@ -69,53 +88,44 @@ header{
 .soldout{
 	color:#EEEEEE;
 }
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-header{
-	.navbar-left{
-		span{
-			font-size:20px;
-			padding-top:10px;
-		}
-	}
-	.navbar-right{
-		li{
-			margin:10px;
-		}
-	}
+.select_n_box{
+	height:34px;
+}
+/* ページネーションのデザイン */
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  border-radius: 50%;
+}
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 50%;     /*角を丸くする*/
 }
 
-.body{
-	margin-top:60px;
-	padding-bottom:70px;
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 50%;    /*角を丸くする*/
 }
-.jumbotron { 
-	background:url(cake1.jpg) center no-repeat;
-	background-size: cover;
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
 }
-.site-description{
-	margin-bottom:20px;
-	padding-top:0px;
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
 }
-.thumbnail{
-	.caption{
-		padding-top:5px;
-	}
-	border: 0px none;
-	margin-bottom:0px;
+/* ページネーションのデザインここまで */
+.genre_name{
+	margin:0px;
+	padding:0px;
 }
-.more_item{
-	text-align:right;
-	padding-top:0px;
-}
-.box {
-        position: relative;
-        height: 300px;
-}
-.bottom-text {
-        position: absolute;
-        bottom: 0;
-}
+/* アドミン用ボタン */
 
+ .navbar-nav > li > a {
+   padding-top: 5px;
+   padding-bottom: 5px;
+  }

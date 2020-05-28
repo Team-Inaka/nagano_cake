@@ -19,13 +19,8 @@ class Costomers::ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 
 		if @product.is_valid == true
-			@select_text=[1,2,3,4,5,6,7,8,9,10]
-			@b_name="カートに追加する"
-		else
-			select_text="個数選択"
-			@b_name="売り切れ"
+			@select_num=[1,2,3,4,5,6,7,8,9,10]
 		end
-		@producted=Product.new# テスト用変数 後で消す
+		@producted=Product.new# 空のカートアイテム
 	end
-	
 end
