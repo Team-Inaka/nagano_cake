@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+    <h3>注文履歴詳細</h3>
+    <span>購入者</span>
+    <%= @order.costomer.family_name + @order.costomer.middle_name %><br>
+    <span>配送先</span>
+    <%= @order.delivery_zipcode + @order.delivery_address + @order.address_name %><br>
+
+    <span>支払方法</span>
+    <%= @order.pay_method %><br>
+    <span>注文ステータス</span>
+    <%= form_for @order, url:  admins_order_update_path(@order) do |f| %>
+    <%= f.select :order_status,Order.order_statuses.keys.to_a, {} %>
+    <%= f.submit "更新" %>
+    <% end %>
+    </div>
+        <div class="row">
+        <div class="col-xs-9">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価（税込）</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                        <th>制作ステータス</th>
+                    </tr>
+                </thead>
+                    <tr>
+                    <% @order.ordered_products.each do |ordered_product| %>
+                        <tbody>
+                            <td><%= ordered_product.product.name %></td>
+                            <td><%= (ordered_product.product.notax_price * 1.10).floor %></td>
+                            <td><%= ordered_product.number %></td>
+                            <td><%= (ordered_product.product.notax_price * 1.10).floor.to_i * ordered_product.number.to_i %></td>
+                            <td><%= form_for ordered_product, url:  admins_path(ordered_product) do |f| %>
+                                <%= f.select :production_status,OrderedProduct.production_statuses.keys.to_a, {} %>
+                                <%= f.submit "更新" %>
+                                <% end %></td>
+                            </tbody>
+                        <% end %>
+                            
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3">
+            <table>
+                <tr>
+                    <th>商品合計</th>
+                    <td><%= @order.billing_amount %></td>
+                </tr>
+                <tr>
+                    <th>送料</th>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <th>請求額合計</th>
+                    <td><%= @order.billing_amount.to_i + 800 %></td>
+                </tr>
+            </table>
+        </div>
+</div>
