@@ -1,6 +1,7 @@
 class Admins::CostomersController < ApplicationController
 before_action :authenticate_admin!	
 
+
   def index
   	  @costomers = Costomer.all
   end
@@ -21,8 +22,8 @@ before_action :authenticate_admin!
 
 private
 
-def costomer_params
-  params.require(:costomer).permit(:name, :email)
-end
+ def costomer_params
+    params.require(:costomer).permit(:family_name, :middle_name, :family_name_kana, :middle_name_kana, :zipcode, :address, :phone_number, :email, :password, :password_confirmation)
+ end
   	
 end

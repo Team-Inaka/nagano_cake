@@ -1,5 +1,28 @@
 Rails.application.routes.draw do
 
+
+  # resources :cart_items
+  # resources :carts, except: [:index]
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # post "orders/confirm" => "orders#confirm"
+  # get "orders/complete" => "orders#complete"
+  # resources :orders,only:[:new,:create,:index,:show]
+  
+  # namespace :admins do
+  #   resources :ordered_products, only:[:index,:show]
+  #   patch "ordered_products/:id/order_update" => "ordered_products#order_update", as: 'order_update'
+  #   patch "ordered_products/:id/production_update" => "ordered_products#production_update"
+  # end
+
+  # namespace :admins do
+  #   resources :orders, only:[:index, :show, :update]
+  # end
+  
+  
+  
+
+
+
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
@@ -9,7 +32,6 @@ Rails.application.routes.draw do
 # 3782311ff1cdb6778024e8fd68187ebed5c72e4d
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
     sessions: "admins/sessions",
   }
     # devise_scope :admin do
@@ -51,11 +73,25 @@ Rails.application.routes.draw do
     resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :costomers, only: [:show, :edit, :update]
+    resources :cart_items
+    resources :carts, except: [:index]
     get "/costomers/costomer/withdraw" => "costomers#withdraw"
     put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
   end
-  root "homes#top"
+  root "costomers/homes#top"
 
+
+
+
+  resources :products, only: [:index, :show]
+  namespace :admins do
+      resources :genres, only:[:index,:edit,:update,:create]
+      resources :products, except: [:destroy]
+  end
+
+  resources :products, only: [:index, :show]
+
+  resources :products, only: [:index, :show],param: :id
 
   # devise_scope :costomer do 
   # post 'cosotmers/sign_up/confirm' => 'costomers/registrations#confirm'
@@ -77,11 +113,15 @@ Rails.application.routes.draw do
 
   # resources :products, only: [:index, :show],params: :id
 
+
   namespace :admins do
       resources :costomers, only:[:index,:show,:edit,:update]
       resources :genres, only:[:index,:edit,:update,:create]
       resources :products, except: [:destroy]
+      get "admins/homes" => "homes#top"
   end
+
+
 
 end
 
