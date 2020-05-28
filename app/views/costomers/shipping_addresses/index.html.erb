@@ -60,6 +60,7 @@
 								<td><%= ship.address %></td>
 								<td><%= ship.name %></td>
 								<td><%= link_to "編集する", edit_costomers_shipping_address_path(ship.id), class: "btn btn-primary active" %>&emsp;<%= link_to "削除する", costomers_shipping_address_path(ship.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger active" %></td>
+
 							</tr>
 						</tbody>
 						<% end %>

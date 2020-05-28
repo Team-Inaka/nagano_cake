@@ -1,4 +1,5 @@
 class Costomers::CartsController < ApplicationController
+  before_action :authenticate_costomer!
 	before_action :set_cart, only: [:show, :edit, :update, :destroy]
   def show
   end
@@ -14,4 +15,5 @@ private
 	def set_cart
 		@cart = Cart.find(params[:id])
 	end
+
 end

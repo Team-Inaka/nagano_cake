@@ -27,6 +27,7 @@
 			<div class="box">
 				<div class="bottom-text">
 				<!--form_for [@cart_item,@product] do |f| -->
+
 				<%= form_for [:costomers,@producted] do |f| %>
 					<% if(@product.is_valid==true) %><!-- 販売ステータスが販売中の時カートに追加ボタン表示 -->
 						<%= f.select :number, @select_text, include_blank: "個数選択" %>
