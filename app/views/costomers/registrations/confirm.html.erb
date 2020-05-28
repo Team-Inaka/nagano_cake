@@ -4,7 +4,7 @@
 <%= form_for @costomer, url: {action: "create"} do |f| %>
   
   <tr>
-    <th class="danger"><%= f.label :family_name %></th>
+    <th><%= f.label :family_name %></th>
     <th><%= f.hidden_field :family_name %></th>
     <th><%= @costomer.family_name %></th>
   </tr>

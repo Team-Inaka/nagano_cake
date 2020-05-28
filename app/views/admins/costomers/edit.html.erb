@@ -1,0 +1,53 @@
+<%= form_with(model: @costomer, url:admins_costomer_path(@costomer)) do |f| %>
+  <div class="nema_field">
+  <span class="font">名前</span>
+  <div class="field">
+    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder:"姓"%>
+  </div>
+
+   <div class="field">
+
+    <%= f.text_field :middle_name, autofocus: true, autocomplete: "middle_name", placeholder:"名" %>
+  </div>
+</div>
+
+<div class="under_name_field">
+  <span class="font">フリガナ</span>
+  <div class="field">
+  
+    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder:"セイ" %>
+  </div>
+
+  <div class="field">
+   
+    <%= f.text_field :middle_name_kana, autofocus: true, autocomplete: "middle_name_kana", placeholder:"メイ" %>
+  </div>
+</div>
+
+  <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+  </div>
+
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "変更を保存する" %>
+  </div>
+<% end %>
+

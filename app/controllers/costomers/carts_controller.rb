@@ -73,5 +73,7 @@ class Costomers::CartsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def cart_params
       params.fetch(:cart, {})
+
   end
+>>>>>>> develop
 end
