@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     def create
         @order = Order.new(order_params)
         @order.costomer_id =current_costomer.id
+        @order.postage = 0
         @order.save
         @cart_items = CartItem.all
         @cart_items.each do |cart_item|
@@ -23,7 +24,6 @@ class OrdersController < ApplicationController
     
     def index
       @orders = Order.all
-      
     end
     
     def show
@@ -32,12 +32,27 @@ class OrdersController < ApplicationController
     
     def confirm
         @order = Order.new(order_params)
-        @ordered_product = OrderedProduct.new
-        @order2 = Order.find_by(id: params[:format])
-        @cart_items = CartItem.all
-        @order.billing_amount = 0
-        @cart_items.each do |cart_item|
-          @order.billing_amount += ((cart_item.product.notax_price * 1.10).floor.to_i * cart_item.number.to_i)
+        @costomer = current_costomer
+          render "new" if @order.deliver.nil?
+          render "new" if @order.pay_method.nil?
+
+        if @order.deliver == 1
+          @ship = ShippingAddress.find(params[:shipping_address_id])
+          @order.delivery_zipcode = @ship.zipcode
+          @order.delivery_address = @ship.address
+          @order.address_name = @ship.name
+        elsif @order.deliver == 0
+          @address2 = @costomer.zipcode + @costomer.address + @costomer.family_name + @costomer.middle_name
+        end
+
+        # elsif @order.deliver == 2
+          @ordered_product = OrderedProduct.new
+          @order2 = Order.find_by(id: params[:format])
+          @cart_items = CartItem.all
+          @order.billing_amount = 0
+          @cart_items.each do |cart_item|
+            @order.billing_amount += ((cart_item.product.notax_price * 1.10).floor.to_i * cart_item.number.to_i)
+      
         end
     end
     

@@ -2,6 +2,8 @@
     <div class="row">
         <div class="col-xs-7">
             <%= form_for @order,url: orders_path do |f| %>
+                <%= f.hidden_field :deliver %>
+                <%= @order.deliver %>
             <h2>注文情報確認</h2>
             <table class="table table-bordered">
                 <thead>
@@ -52,7 +54,7 @@
             <%= @order.pay_method %>
             <h2>お届け先</h2>
             <%= @order2 %>
-            <%= @order.deliver %><br>
+            <%= @address2 %><br>
             <%= f.hidden_field :delivery_zipcode %>
             <%= @order.delivery_zipcode %><br>
             <%= f.hidden_field :delivery_address %>

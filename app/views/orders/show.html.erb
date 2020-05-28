@@ -10,7 +10,11 @@
                 </tr>
                 <tr>
                     <th>配送先</th>
-                    <td><%= @order.delivery_zipcode %><%= @order.delivery_address %><%= @order.address_name %></td>
+                    <% if @order.deliver == 0 %>
+                        <td><%= current_costomer.zipcode + current_costomer.address + current_costomer.family_name + current_costomer.middle_name %></td>
+                    <% else %>
+                        <td><%= @order.delivery_zipcode %><%= @order.delivery_address %><%= @order.address_name %></td>
+                    <% end %>
                 </tr>
                 <tr>
                     <th>支払方法</th>
