@@ -18,13 +18,19 @@ class Costomer < ApplicationRecord
           # end
 
           def full_name
-          	  return self.family_name + self.middle_name
+          	   self.family_name + self.middle_name
 
           end
 
           def full_name_kana
           	  self.family_name_kana + self.middle_name_kana
           end
-  has_many :orders, dependent: :destroy 
+
+
+          enum is_withdraw: {退会:true, 有効:false}
+
+
+  # has_many :orders, dependent: :destroy 
+
 
 end
