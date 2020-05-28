@@ -25,8 +25,8 @@ class CartItemsController < ApplicationController
   # POST /cart_items.json
   def create
     @cart = current_cart
-    product = Product.find(params[:product_id])
-    @cart_item = @cart.add_product(product.id)
+    product = Product.find(params[:cart_item][:product_id])
+    @cart_item = @cart.cart_items.new(cart_item_params)
 
     respond_to do |format|
       if @cart_item.save
@@ -44,10 +44,10 @@ class CartItemsController < ApplicationController
   def update
     respond_to do |format|
       if @cart_item.update(cart_item_params)
-        format.html { redirect_to @cart_item, notice: 'Cart item was successfully updated.' }
+        format.html { redirect_to @cart_item.cart, notice: 'カートが更新されました' }
         format.json { render :show, status: :ok, location: @cart_item }
       else
-        format.html { render :edit }
+        format.html { redirect_to @cart_item.cart, notice: '1以上の数字を入力してください' }
         format.json { render json: @cart_item.errors, status: :unprocessable_entity }
       end
     end
