@@ -1,28 +1,14 @@
 Rails.application.routes.draw do
 
 
-<<<<<<< HEAD
-  # resources :cart_items
-  # resources :carts, except: [:index]
-=======
-  resources :cart_items
-  resources :carts, except: [:index]
->>>>>>> origin/develop
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # post "orders/confirm" => "orders#confirm"
-  # get "orders/complete" => "orders#complete"
-  # resources :orders,only:[:new,:create,:index,:show]
-  
-  # namespace :admins do
-  #   resources :ordered_products, only:[:index,:show]
-  #   patch "ordered_products/:id/order_update" => "ordered_products#order_update", as: 'order_update'
-  #   patch "ordered_products/:id/production_update" => "ordered_products#production_update"
-  # end
 
-  # namespace :admins do
-  #   resources :orders, only:[:index, :show, :update]
-  # end
+ 
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
   
+  
+
   
   
 
@@ -82,21 +68,20 @@ Rails.application.routes.draw do
     resources :carts, except: [:index]
     get "/costomers/costomer/withdraw" => "costomers#withdraw"
     put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
+    post "orders/confirm" => "orders#confirm"
+    get "orders/complete" => "orders#complete"
+    resources :orders,only:[:new,:create,:index,:show]
   end
   root "costomers/homes#top"
 
 
 
 
-  resources :products, only: [:index, :show]
-  namespace :admins do
-      resources :genres, only:[:index,:edit,:update,:create]
-      resources :products, except: [:destroy]
-  end
+  
 
-  resources :products, only: [:index, :show]
+ 
 
-  resources :products, only: [:index, :show],param: :id
+  # resources :products, only: [:index, :show],param: :id
 
   # devise_scope :costomer do 
   # post 'cosotmers/sign_up/confirm' => 'costomers/registrations#confirm'
@@ -123,7 +108,12 @@ Rails.application.routes.draw do
       resources :costomers, only:[:index,:show,:edit,:update]
       resources :genres, only:[:index,:edit,:update,:create]
       resources :products, except: [:destroy]
+      resources :products, only: [:index, :show],param: :id
       get "admins/homes" => "homes#top"
+      resources :orders, only:[:index, :show, :update]
+      resources :ordered_products, only:[:index,:show]
+      patch "ordered_products/:id/order_update" => "ordered_products#order_update", as: 'order_update'
+      patch "ordered_products/:id/production_update" => "ordered_products#production_update"
   end
 
 

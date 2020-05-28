@@ -1,10 +1,11 @@
 <table class="table">
-<h2>確認画面</h2>
+<h2>お客様情報確認画面</h2>
+<p>ご登録内容にお間違いなければ新規登録ボタンを押して下さい</p>
 
 <%= form_for @costomer, url: {action: "create"} do |f| %>
   
   <tr>
-    <th class="danger"><%= f.label :family_name %></th>
+    <th><%= f.label :family_name %></th>
     <th><%= f.hidden_field :family_name %></th>
     <th><%= @costomer.family_name %></th>
   </tr>
