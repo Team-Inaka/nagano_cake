@@ -41,4 +41,5 @@ private
 		params.require(:cart_item).permit(:costomer_id, :product_id, :cart_id, :number)
 	end
 
+
 end

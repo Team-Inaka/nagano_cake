@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
-	validates :name, presence: true
-	validates :notax_price, presence: true
-	validates :image, presence: true
-	validates :genre, presence: true
+	validates :name, presence: { message: '商品名を入力してください' }
+	validates :notax_price, presence: { message: '税抜価格を入力してください' }
+	validates :image, presence: { message: '商品画像を選択してください' }
+	validates :genre, presence: { message: 'ジャンルを選択してください' }
 	validates :is_valid, inclusion: { in: [true, false] }
 
 	belongs_to :genre

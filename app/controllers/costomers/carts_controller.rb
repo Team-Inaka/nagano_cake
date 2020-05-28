@@ -16,4 +16,11 @@ private
 		@cart = Cart.find(params[:id])
 	end
 
+
+    # Only allow a list of trusted parameters through.
+    def cart_params
+      params.fetch(:cart, {})
+
+  end
+
 end

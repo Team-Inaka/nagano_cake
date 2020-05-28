@@ -4,20 +4,25 @@
 	<div class='col-xs-6'>
 
 		<!-- ジャンル編集フォーム -->
-		<h3>ジャンル編集</h3>
+		<h3 style='margin-bottom: 30px;'>ジャンル編集</h3>
 		<%= form_for(@genre,url: admins_genre_path(@genre)) do |f| %>
 		  <div class="field row">
 		  	<!-- ジャンルテキスト入力フォーム -->
-		    <%= f.label :name,"ジャンル" %>
-		    <%= f.text_field :name, class: 'col-xs-6 genre_name' %>
+		  	<div class='col-xs-5'>
+		     <%= f.label :name,"ジャンル" %>
+		     <%= f.text_field :name, class: 'genre_name'%>
+		    </div>
 
 		    <!-- 有効無効ラジオボタン-->
-		    <%= f.radio_button :is_valid, :true, checked: "checked" %>
-    		<%= f.label :is_valid,"有効" %>
-    		<%= f.radio_button :is_valid, :false %>
-    		<%= f.label :is_valid,"無効" %>
+		    <div class='col-xs-6'>
+		      <%= f.radio_button :is_valid, :true, checked: "checked" %>
+    		  <%= f.label :is_valid,"有効" %>
+    		  <%= f.radio_button :is_valid, :false %>
+    		  <%= f.label :is_valid,"無効" %>
+    		
 
 		    <%= f.submit "変更を保存する", class: 'btn btn-primary'%>
+		    </div>
 		  </div>
 		<% end %>
 

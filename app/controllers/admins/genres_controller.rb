@@ -1,5 +1,7 @@
 class Admins::GenresController < ApplicationController
-def index
+	before_action :if_not_admin
+
+	def index
 		@genres = Genre.all
     	@genre = Genre.new
 	end
@@ -30,5 +32,9 @@ def index
 	private
 	def genre_params
       	params.require(:genre).permit(:name, :is_valid)
+    end
+    #adminコントローラに全部入れたい
+    def if_not_admin
+    	redirect_to new_admin_session_path unless admin_signed_in?
     end
 end
