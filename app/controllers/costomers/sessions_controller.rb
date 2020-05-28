@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 class Costomers::SessionsController < Devise::SessionsController
 #    before_action :reject_user, only: [:create]
+# def new
+#     super
+#   end
 
+  # POST /resource/sign_in
+# def create
+#     super
+# end
+
+  # DELETE /resource/sign_out
+# def destroy
+#     super
+# end
 #   protected
 
 #   def reject_user

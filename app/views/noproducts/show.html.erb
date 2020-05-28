@@ -1,0 +1,55 @@
+<div class="row">
+
+  <!-- ジャンル検索 -->
+  <%= render '/genre_search', genres: @genres %>
+
+  <!-- メインコンテンツ-->
+  <div class='col-xs-9'>
+   <div class="row">
+  	<div class='col-xs-6'>
+  		<%= attachment_image_tag @product, :image,:fill, 400, 300,fallback: "noimage.svg" %>
+  	</div>
+
+  	<div class='col-xs-6'>
+  		<div class="form-group row">
+			<h3><%= @product.name %></h3>
+		</div>
+		<div class="form-group row">
+			<%= @product.explain %>
+		</div>
+		<div class="form-group row">
+			<!-- add_comma：カンマ区切り（application_helper.rbに記載） -->
+			<!-- addTax：税込価格 -->
+			￥<%= add_comma(addTax(@product.notax_price)) %>(税込)
+		</div>
+		<!-- 個数のセレクトボックス -->
+		<div class="col-sm-9">
+			<div class="product_button_box">
+				<div class="bottom-text">
+				<!--form_for [@cart_item,@product] do |f| -->
+				<%= form_for [@producted] do |f| %>
+					<% if costomer_signed_in? %><!-- 会員かどうか -->
+						<% if(@product.is_valid==true) %><!-- 販売ステータスが販売中の時カートに追加ボタン表示 -->
+							<%= f.select :is_valid, @select_num, include_blank: "個数選択",class: 'select_num' %>
+							<%= f.submit "カートに入れる", class: 'btn btn-primary'%>
+						<% else %><!-- 販売ステータスが売り切れの時 -->
+							<%= f.select :is_valid,['個数選択'],{},disabled: true,class: 'soldout select_num' %>
+							<%= f.submit "売り切れ", class: 'btn btn-primary',disabled: true %>
+						<% end %>
+					<% else %><!-- 会員ではない時 -->
+						<%= f.select :is_valid,['個数選択'],{},disabled: true,class: 'soldout select_num' %>
+						<%= f.submit 'カートに入れる', class: 'btn btn-primary',disabled: true %>
+					<% end %>
+				<% end %>
+				<%= button_to 'カートに入れる', cart_items_path(product_id: @product), class: 'btn btn-primary' %>
+			   </div>
+			</div>
+	    </div>
+	</div>
+   
+   </div>
+  </div>
+
+</div>
+
+</div>

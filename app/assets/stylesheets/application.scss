@@ -30,7 +30,7 @@ header{
 	}
 	.navbar-right{
 		li{
-			margin:10px;
+			margin: 5px 5px 5px 10px;
 		}
 	}
 }
@@ -51,7 +51,7 @@ header{
 	padding-bottom:20px;
 }
 .jumbotron { 
-	background:url(cake1.jpg) center no-repeat;
+	background:url(top_cake2.jpg) center no-repeat;
 	background-size: cover;
 }
 .site-description{
@@ -69,13 +69,13 @@ header{
 	text-align:right;
 	padding-top:0px;
 }
-.box {
-        position: relative;
-        height: 300px;
-}
 .product_button_box{
 	position: relative;
     height: 160px;
+}
+.adm_product_button_box{
+	position: relative;
+    height: 300px;
 }
 .bottom-text {
         position: absolute;
@@ -88,7 +88,7 @@ header{
 .soldout{
 	color:#EEEEEE;
 }
-.select_num{
+.select_n_box{
 	height:34px;
 }
 /* ページネーションのデザイン */
@@ -123,3 +123,10 @@ header{
 	margin:0px;
 	padding:0px;
 }
+/* アドミン用ボタン */
+
+
+ .navbar-nav > li > a {
+   padding-top: 5px;
+   padding-bottom: 5px;
+  }

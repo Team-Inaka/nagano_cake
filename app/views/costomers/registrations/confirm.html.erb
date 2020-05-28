@@ -1,0 +1,69 @@
+<table class="table">
+<h2>確認画面</h2>
+
+<%= form_for @costomer, url: {action: "create"} do |f| %>
+  
+  <tr>
+    <th class="danger"><%= f.label :family_name %></th>
+    <th><%= f.hidden_field :family_name %></th>
+    <th><%= @costomer.family_name %></th>
+  </tr>
+  
+  
+  <tr>
+    <th><%= f.label :middle_name %></th>
+    <th><%= f.hidden_field :middle_name%></th>
+    <th><%= @costomer.middle_name %></th>
+  </tr>
+
+  <tr>
+    <th><%= f.label :family_name_kana %></th>
+    <th><%= f.hidden_field :family_name_kana %></th>
+    <th><%= @costomer.family_name_kana %></th>
+  </tr>
+
+  <tr>
+    <th><%= f.label :middle_name_kana %></th>
+    <th><%= f.hidden_field :middle_name_kana %></th>
+    <th><%= @costomer.family_name_kana %></th>
+  </tr>
+  
+  <tr>
+    <th><%= f.label :zipcode %></th>
+    <th><%= f.hidden_field :zipcode %></th>
+    <th><%= @costomer.zipcode %></th>
+  </tr>
+
+  <tr>
+    <th><%= f.label :address %></th>
+    <th><%= f.hidden_field :address %></th>
+    <th><%= @costomer.address %></th>
+  </tr>
+
+  <tr> 
+    <th><%= f.label :phone_number %></th>
+    <th><%= f.hidden_field :phone_number %></th>
+    <th><%= @costomer.phone_number %></th>
+  </tr>
+
+  
+  <tr> 
+    <th><%= f.label :email %></th>
+    <th><%= f.hidden_field :email %></th>
+    <th><%= @costomer.email %></th>
+  </tr>
+
+  <tr>
+    <th><%= f.label :password %></th>
+    <th><%= f.hidden_field :password %></th>
+    <th><%= @costomer.password %></th>
+  </tr>
+
+  <tr>
+    <th><%= f.submit "新規登録" %></th>
+  </tr>
+
+
+  <% end %>
+ </table> 
+

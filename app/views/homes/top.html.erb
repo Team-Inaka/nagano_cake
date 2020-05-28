@@ -18,8 +18,10 @@
     </div>
 
     <!-- オススメ商品リスト-->
-    <%= render 'products/index', products: @products %>
-    <div class="more_item"><%= link_to "もっと見る>", products_path %></div>
+
+    <%= render 'costomers/products/index', products: @products %>
+
+    <div class="more_item"><%= link_to "もっと見る>", costomers_products_path %></div>
 
   </div>
 </div>

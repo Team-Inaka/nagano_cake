@@ -42,7 +42,7 @@ class Admins::ProductsController < ApplicationController
 
     #adminコントローラに全部入れたい
     def if_not_admin
-    	redirect_to new_admin_session unless admin_signed_in?
+    	redirect_to new_admin_session_path unless admin_signed_in?
     end
 
 end

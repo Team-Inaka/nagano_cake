@@ -1,31 +1,58 @@
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
-      <span>Logo（要差し替え）</span>
-      仮ヘッダー
+      <span><%= image_tag 'logo.png',:size =>'80x60' %></span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
       <% if costomer_signed_in? %>
         <li>会員（表示確認用）</li>
-        <li><%= link_to 'カート', products_path,class: 'btn btn-default' %></li><!-- 要パス修正 -->
-        <li><%= link_to "商品一覧", products_path,class: 'btn btn-default' %></li>
-        <li><%= link_to 'マイページ', costomer_path(current_costomer.id),class: 'btn btn-default' %></li>
+        <li><%= link_to 'カート', costomers_cart_items_path(current_costomer.id),class: 'btn btn-default' %></li>
+        <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
+        <li><%= link_to 'マイページ', costomers_costomer_path(current_costomer.id),class: 'btn btn-default' %></li>
         <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete,class: 'btn btn-default' %></li>
       <% elsif admin_signed_in? %>
-        <li>管理者（表示確認用）</li>
-        <li><%= link_to "商品一覧", admins_products_path,class: 'btn btn-default' %></li>
-        <li><%= link_to "会員一覧", admins_products_path,class: 'btn btn-default' %></li><!-- 要パス修正 -->
-        <li><%= link_to "注文履歴一覧", admins_products_path,class: 'btn btn-default',:style=>"font-size:13px;" %></li><!-- 要パス修正 -->
-        <li><%= link_to "ジャンル一覧", admins_genres_path,class: 'btn btn-default',:style=>"font-size:13px;" %></li>
-        <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'btn btn-default' %></li>
+          <li>管理者（表示確認用）</li>
+          <li class="character_position"><%= link_to "商品一覧", admins_products_path,class: 'btn btn-default btn-xs head_bt' %></li>
+          <li><%= link_to "会員一覧", admins_costomers_path,class: 'btn btn-default btn-xs head_bt' %></li>          
+          <li><%= link_to "注文履歴一覧", admins_products_path,class: 'btn btn-default btn-xs head_bt' %></li><!-- 要パス修正 -->
+          <li><%= link_to "ジャンル一覧", admins_genres_path,class: 'btn btn-default btn-xs head_bt' %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'btn btn-default btn-xs head_bt' %></li>
       <% else %>
         <li>ゲスト（表示確認用）</li>
-        <li><%= link_to "商品一覧", products_path,class: 'btn btn-default' %></li>
+        <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
         <li><%= link_to "新規登録", new_costomer_registration_path,class: 'btn btn-default' %></li>
         <li><%= link_to "ログイン", new_costomer_session_path,class: 'btn btn-default' %></li>
       <% end %>
       </ul>
+
+      <% if admin_signed_in? %>
+      <div class="pull-right">
+        <div class="row">
+          <div class='col-xs-8'></div>
+          <div class='col-xs-4'>
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">会員</a></li>
+                  <li><a href="#">商品</a></li>
+                  <li><a href="#">注文</a></li>
+                </ul>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <% end %>
+
     </nav>
   </div>
 </header>
