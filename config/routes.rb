@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'

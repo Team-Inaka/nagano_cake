@@ -1,15 +1,20 @@
-<%= form_with(model: cart, local: true) do |form| %>
-  <% if cart.errors.any? %>
+<%= form_with(model: costomers_cart, local: true) do |form| %>
+  <% if costomers_cart.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+      <h2><%= pluralize(costomers_cart.errors.count, "error") %> prohibited this costomers_cart from being saved:</h2>
 
       <ul>
-      <% cart.errors.full_messages.each do |message| %>
+      <% costomers_cart.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= form.label :costomer_id %>
+    <%= form.number_field :costomer_id %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

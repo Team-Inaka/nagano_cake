@@ -25,7 +25,7 @@ class Costomers::ProductsController < ApplicationController
 			select_text="個数選択"
 			@b_name="売り切れ"
 		end
-		@producted=Product.new# テスト用変数 後で消す
+		@producted = CartItem.new
 	end
 	
 end
