@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <%= form_for @order, url: orders_confirm_path  do |f| %>
+                <h3>注文情報入力</h3>
+                <h3>支払い方法</h3>
+                
+                <%= f.radio_button :pay_method, "クレジットカード", label: "クレジットカード" %>クレジットカード<br>
+                <%= f.radio_button :pay_method, "銀行振り込み", label: "銀行振り込み" %>銀行振り込み
+            
+
+            
+                <h2>お届け先</h2>
+
+                <label><%= f.radio_button :deliver, 0 %>ご自身の住所</label><br>
+                <%= @costomer.zipcode %><br>
+                <%= @costomer.address %><br>
+                <%= @costomer.family_name %>
+                <%= @costomer.middle_name %><br>
+
+                <label><%= f.radio_button :deliver, 1 %>登録済住所から選択</label><br>
+                <%= select_tag :shipping_address_id, options_from_collection_for_select(ShippingAddress.all, :id, :abc) %><br>
+                
+                <label><%= f.radio_button :deliver, 2 %>新しいお届け先</label><br>
+                <%= f.label :delivery_zipcode, "郵便番号（ハイフンなし）" %>
+                <%= f.number_field :delivery_zipcode %><br>
+                <%= f.label :delivery_address, "住所" %>
+                <%= f.text_field :delivery_address %><br>
+                <%= f.label :address_name, "宛名" %>
+                <%= f.text_field :address_name %><br>
+                <%= f.submit "確認画面へ進む" %>
+            <% end %>
+        </div>
+    </div>
+</div>
