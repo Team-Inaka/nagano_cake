@@ -6,7 +6,7 @@
 					<h3 style="background-color: gray">&ensp;&thinsp;&thinsp;ショッピングカート</h3>
 				</div>
 				<div class="col-xs-offset-4 col-xs-5">
-					<%= link_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger active' %>
+					<%= link_to 'カートを空にする', costomers_cart_path(), method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'btn btn-danger active' %>
 				</div>
 			</div>
 				<div class="row">
@@ -24,11 +24,13 @@
 							<% @cart.cart_items.each do |item| %>
 							<tbody>
 								<tr>
-									<td><%= attachment_image_tag item.product, :image,:fill, 5, 5,fallback: "noimage.svg" %><%= item.product.name %></td>
+									<td><%= attachment_image_tag item.product, :image,:fill, 40, 30,fallback: "noimage.svg" %>&emsp;<span class="lead"><%= item.product.name %></span></td>
 									<td><%= add_comma((item.product.notax_price * 1.1).to_i) %></td>
-									<td><%= item.number %></td>
+									<%= form_for item, url: costomers_cart_item_path(item) do |f| %>
+										<td><%= f.text_field :number, class: 'form-inline', size: '5' %><%= f.submit "更新" %></td>
+									<% end %>
 									<td><%= add_comma((item.total_price * 1.1).to_i) %></td>
-									<td><%= link_to '削除する', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか?'}, class: 'btn btn-danger btn-sm' %></td>
+									<td><%= link_to '削除する', costomers_cart_item_path(item), method: :delete, data: {confirm: 'カートから削除してよろしいですか?'}, class: 'btn btn-danger btn-sm' %></td>
 								</tr>
 							</tbody>
 							<% end %>
@@ -36,7 +38,7 @@
 						<def class="row">
 							<def class="col-xs-12">
 								<def class="col-xs-3">
-									<%= link_to '買い物を続ける', products_path, class: "btn btn-primary active" %>
+									<%= link_to '買い物を続ける', costomers_products_path, class: "btn btn-primary active" %>
 								</def>
 								<def class="col-xs-offset-6 col-xs-3">
 									<table class="table table-hover table-bordered">
