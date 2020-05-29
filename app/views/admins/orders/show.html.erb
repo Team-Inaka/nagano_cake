@@ -9,6 +9,7 @@
     <% else %>
         <%= @order.delivery_zipcode + @order.delivery_address + @order.address_name %><br>
     <% end %>
+
     <span>支払方法</span>
     <%= @order.pay_method %><br>
     <span>注文ステータス</span>

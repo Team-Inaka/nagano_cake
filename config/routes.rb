@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   # resources :cart_items
   # resources :carts, except: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "orders/confirm" => "orders#confirm"
+  get "orders/complete" => "orders#complete"
+  resources :orders,only:[:new,:create,:index,:show]
+
 
 
   post "orders/confirm" => "orders#confirm"
@@ -87,7 +91,6 @@ Rails.application.routes.draw do
     resources :carts, except:[:index]
     get "/costomers/costomer/withdraw" => "costomers#withdraw"
     put "/costomers/costomer/:id/hide" => "costomers#hide", as: 'costomers_hide'
-    
   end
   root "costomers/homes#top"
 

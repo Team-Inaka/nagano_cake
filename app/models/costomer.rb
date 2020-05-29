@@ -6,7 +6,7 @@ class Costomer < ApplicationRecord
 
          has_many :shipping_addresses, dependent: :destroy
          has_many :carts, dependent: :destroy
-        
+         has_many :orders, dependent: :destroy
 
         validates :is_withdraw, inclusion: { in: [true, false] }
           # costomerのis_withdrawがfalseならtrueを返す
@@ -29,10 +29,6 @@ class Costomer < ApplicationRecord
           end
 
 
-          # enum is_withdraw: {退会済み:true, 有効:false}
-
-
-  has_many :orders, dependent: :destroy 
 
 
 end
