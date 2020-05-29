@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 	  end
 	end
 
+
+
 	def current_cart
 		unless Cart.exists?(costomer_id: current_costomer.id)
 			@cart = Cart.create(costomer_id: current_costomer.id)
