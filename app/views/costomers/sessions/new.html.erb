@@ -20,10 +20,10 @@
 
 
 
-  
-  <%= f.label :password %>
+  <div class="field">
+  <%= f.label :password %><br>
   <%= f.password_field :password, autocomplete: "password" %>
-  
+  </div>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>

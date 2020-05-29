@@ -25,6 +25,27 @@ Rails.application.routes.draw do
 
 
 
+  post "orders/confirm" => "orders#confirm"
+  get "orders/complete" => "orders#complete"
+  resources :orders,only:[:new,:create,:index,:show]
+
+
+  
+  # namespace :admins do
+  #   resources :ordered_products, only:[:index,:show]
+  #   patch "ordered_products/:id/order_update" => "ordered_products#order_update", as: 'order_update'
+  #   patch "ordered_products/:id/production_update" => "ordered_products#production_update"
+  # end
+
+  namespace :admins do
+    resources :orders, only:[:index, :show, :update]
+  end
+  
+  
+  
+
+
+
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
