@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # resources :cart_items
   # resources :carts, except: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
 
   # get 'costomers/index'
   # get 'costomers/show'
@@ -59,8 +59,6 @@ Rails.application.routes.draw do
   # put "/costomers/:id/hide" => "costomers#hide", as: 'costomers_hide'
   # end
   namespace :costomers do
-    post "orders/confirm" => "orders#confirm"
-    get "orders/complete" => "orders#complete"
     resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :costomers, only: [:show, :edit, :update]

@@ -4,8 +4,11 @@
     <span>購入者</span>
     <%= @order.costomer.family_name + @order.costomer.middle_name %><br>
     <span>配送先</span>
-    <%= @order.delivery_zipcode + @order.delivery_address + @order.address_name %><br>
-
+    <% if @order.deliver == 0 %>
+        <%= current_costomer.zipcode + current_costomer.address + current_costomer.family_name + current_costomer.middle_name %><br>
+    <% else %>
+        <%= @order.delivery_zipcode + @order.delivery_address + @order.address_name %><br>
+    <% end %>
     <span>支払方法</span>
     <%= @order.pay_method %><br>
     <span>注文ステータス</span>
