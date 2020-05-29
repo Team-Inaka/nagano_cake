@@ -1,0 +1,78 @@
+
+<h3>マイページ</h3>
+
+<h3 class="font">登録情報</h3>
+
+
+<%= link_to "編集する",   edit_costomers_costomer_path(@costomer.id),class: 'btn btn-primary active' %>
+<%= link_to "パスワードを変更する", edit_costomer_password_path %>
+
+
+
+
+
+<table class="confirm" cellspacing="0" summary="memberInformation2">
+<tbody>
+
+<tr>
+<th class="headRow" scope="row">
+  氏名
+</th>
+<td>
+<%= @costomer.full_name %>
+</td>
+</tr>
+
+<tr>
+<th class="headRow" scope="row">
+  氏名（フリガナ）
+</th>
+<td>
+ <%= @costomer.full_name_kana %>
+</td>
+</tr>
+
+<tr>
+<th class="headRow" scope="row">
+  郵便番号
+</th>
+<td>
+  <%= @costomer.zipcode %>
+</td>
+</tr>
+
+<tr>
+<th class="headRow" scope="row">
+  住所
+</th>
+<td>
+  <%= @costomer.address %>
+</td>
+</tr>
+
+<tr>
+<th class="headRow" scope="row">
+  電話番号
+</th>
+<td>
+  <%= @costomer.phone_number %>
+</td>
+</tr>
+
+<tr>
+<th class="headRow" scope="row">
+  メールアドレス
+</th>
+<td>
+  <%= @costomer.email %>
+</td>
+</tr>
+
+</tbody></table>
+
+<h3 class="font">配送先</h3>
+<%= link_to "一覧をみる", costomers_shipping_addresses_path, class: 'btn btn-primary active' %>
+
+<h3 class="font">注文履歴</h3>
+<%= link_to "一覧をみる", orders_path, class: 'btn btn-primary active' %>
+

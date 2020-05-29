@@ -1,0 +1,80 @@
+
+
+<h3><%= "#{@costomer.family_name} #{@costomer.middle_name}" %>さんの会員詳細</h3>
+
+
+
+
+
+<table class="table">
+<tbody>
+
+<tr>
+<th >
+  顧客ID
+</th>
+<td>
+<%= @costomer.id %>
+<%= (@costomer.is_withdraw==true) ? "退会済み" : "有効会員" %>
+</td>
+</tr>  
+
+<tr>
+<th >
+  氏名
+</th>
+<td>
+<%= @costomer.full_name %>
+</td>
+</tr>
+
+<tr>
+<th>
+  氏名（フリガナ）
+</th>
+<td>
+ <%= @costomer.full_name_kana %>
+</td>
+</tr>
+
+<tr>
+<th>
+  郵便番号
+</th>
+<td>
+  <%= @costomer.zipcode %>
+</td>
+</tr>
+
+<tr>
+<th>
+  住所
+</th>
+<td>
+  <%= @costomer.address %>
+</td>
+</tr>
+
+<tr>
+<th>
+  電話番号
+</th>
+<td>
+  <%= @costomer.phone_number %>
+</td>
+</tr>
+
+<tr>
+<th>
+  メールアドレス
+</th>
+<td>
+  <%= @costomer.email %>
+</td>
+</tr>
+
+
+</tbody></table>
+<%= link_to "編集する",edit_admins_costomer_path(@costomer.id), class: 'btn btn-primary active' %>
+<%= link_to "注文履歴一覧を見る",admins_orders_path(@costomer.id), class: 'btn btn-primary active' %>
+

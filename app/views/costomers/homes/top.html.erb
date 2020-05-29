@@ -1,0 +1,32 @@
+<div class="row">
+
+  <!-- ジャンル検索 -->
+  <%= render '/genre_search', genres: @genres %>
+
+  <!-- メインコンテンツ-->
+  <div class='col-xs-9'>
+  	<!-- トップ画像 -->
+  	<div class="jumbotron">
+  		<div class="container">
+         <div class="row">
+          <div class="col-xs-5 bg-color">
+	        <h3>ようこそ、<br>NaganoCakeへ！</h3>
+    		<div class="site-description">
+    			このサイトは、ケーキ販売のECサイトになります。</br>
+    			会員でない方も商品の閲覧はできますが、</br>
+    			購入には会員登録が必要になります。
+    		</div>
+        <div class="col-xs-7"></div>
+      </div>
+         </div>
+	      </div>
+    </div>
+
+    <!-- オススメ商品リスト-->
+
+    <%= render 'costomers/products/index', products: @products %>
+
+    <div class="more_item"><%= link_to "もっと見る>", costomers_products_path %></div>
+
+  </div>
+</div>

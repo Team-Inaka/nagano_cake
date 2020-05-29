@@ -13,4 +13,152 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+header{
+	.navbar-left{
+		span{
+			font-size:20px;
+			padding-top:10px;
+		}
+	}
+	.navbar-right{
+		li{
+			margin: 5px 5px 5px 10px;
+		}
+	}
+}
+.footer {
+  height: 60px;
+}
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+.content{
+	padding-top:70px;
+	padding-bottom:20px;
+	margin-top:10px;
+}
+.content_costomer{
+	padding-top:30px;
+	padding-bottom:20px;
+	margin-top:20px;
+}
+.jumbotron { 
+	background:url(cake1.jpg) center no-repeat;
+	background-size: cover;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+.bg-color{
+	background:rgba(255,255,255,0.5);
+}
+.site-description{
+	margin-bottom:20px;
+	padding-top:0px;
+}
+.thumbnail{
+	.caption{
+		padding-top:5px;
+	}
+	border: 0px none;
+	margin-bottom:0px;
+}
+.more_item{
+	text-align:right;
+	padding-top:0px;
+}
+.product_button_box{
+	position: relative;
+    height: 140px;
+}
+.adm_product_button_box{
+	position: relative;
+    height: 300px;
+}
+.bottom-text {
+        position: absolute;
+        bottom: 0;
+
+}
+.side{
+	height:100%;
+}
+.soldout{
+	color:#EEEEEE;
+}
+
+/* ページネーションのデザイン */
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  border-radius: 50%;
+}
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 50%;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 50%;    /*角を丸くする*/
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+/* ページネーションのデザインここまで */
+.genre_name{
+	margin:0px;
+	padding:0px;
+}
+/* アドミン用ボタン */
+
+ .navbar-nav > li > a {
+   padding-top: 8px;
+   padding-bottom: 8px;
+  }
+ .logo_user{
+ 	margin:5px 10px;
+ }
+
+ .logo_admin{
+ 	margin-top:10px;
+ }
+#cart_item_number{
+	height:35px;
+}
+.notebook-border {
+  border:solid 5px #f3efea;
+  width:75%;
+  margin:0px auto;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:10px 30px 40px 30px;
+}
+.welcome{
+	padding-right:80px;
+	padding-top:10px;
+}
+.pagination{
+	margin:0px;
+}

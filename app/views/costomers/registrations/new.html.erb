@@ -1,0 +1,129 @@
+<h3>新規会員登録</h3>
+
+<%= form_for(resource, as: resource_name, url: costomers_sign_up_confirm_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+ <div class="cinput_box b-search-address">
+        
+
+            
+                
+
+                    
+                                    
+                    <dl class="cinput_dl name_dl clearfix">
+                        <dt class="cinput_dt"><span class="creq">必須</span>お名前</dt>
+                        <dd class="cinput_dd clearfix">
+                            <div class="name_in_dl name_inl_dl">
+                            <dl class="clearfix">
+                                    <dt>姓</dt>
+                                    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder:"例) 山田"%>
+                                </dl>
+                            </div>
+                            <div class="name_in_dl name_inl_dl">
+                                                                <dl class="clearfix">
+                                    <dt>名</dt>
+                                     <%= f.text_field :middle_name, autofocus: true, autocomplete: "middle_name", placeholder:"例) 太郎" %>
+                                </dl>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="cinput_dl name_dl clearfix">
+                        <dt class="cinput_dt"><span class="creq">必須</span>フリガナ</dt>
+                        <dd class="cinput_dd clearfix">
+                            <div class="name_in_dl name_inl_dl">
+                                                                <dl class="clearfix">
+                                    <dt>セイ</dt>
+                                     <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder:"例）ヤマダ" %>
+                                </dl>
+                            </div>
+                            <div class="name_in_dl name_inl_dl">
+                                                                <dl class="clearfix">
+                                    <dt>メイ</dt>
+                             <%= f.text_field :middle_name_kana, autofocus: true, autocomplete: "middle_name_kana", placeholder:"例）タロウ" %>
+
+                                </dl>
+                            </div>
+                        </dd>
+                    </dl>
+                    <div>
+                        <dl class="cinput_dl postcode_dl clearfix">
+                            <dt class="cinput_dt"><span class="creq">必須</span>郵便番号</dt>
+                                  <li class="clearfix">
+                                  <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode", placeholder:"例) 1234567" %>   
+                                    </li>                                   
+                                    <li class="otpost_text">ハイフンを入れずに入力してください</li>
+                            </dd>
+                        </dl>
+                        
+                                   
+                    </dl>
+                   
+                   <div>
+                        <dl class="cinput_dl postcode_dl clearfix">
+                            <dt class="cinput_dt"><span class="creq">必須</span>住所</dt>
+                                    <li class="clearfix">
+                                 <%= f.text_field :address, autofocus: true, autocomplete: "address",:size=>"60" %>
+                                    </li>                                   
+                            </dd>
+                        </dl>
+                        
+
+                      <div>
+                        <dl class="cinput_dl postcode_dl clearfix">
+                            <dt class="cinput_dt"><span class="creq">必須</span>電話番号</dt>
+                                    <li class="clearfix">
+                                <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+                                    </li>                                   
+                            </dd>
+                        </dl>  
+                                   
+                    </dl>
+                    <dl class="cmail_dl cinput_dl clearfix">
+                        <dt class="cinput_dt"><span class="creq">必須</span>メールアドレス</dt>
+                        <dd class="cinput_dd">
+                            <div class="cinput_dd_email">
+                                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例) abc@defg" %>
+<div class="cinput_dd_email">
+    
+         </div>
+
+
+                        </dd>
+                    </dl>
+                    <dl class="cinput_dl cpassword_dl clearfix">
+                        <dt class="cinput_dt"><span class="creq">必須</span>パスワード</dt>
+                        <dd class="cinput_dd">
+                     <% if @minimum_password_length %>
+                     <em>(<%= @minimum_password_length %> 文字以上入力して下さい)</em>
+                     <% end %><br />
+                     <%= f.password_field :password, autocomplete: "new-password" %>      
+                            
+
+<ul class="cpassword_ul">
+    <li class="cpassword_li">
+                <div class="cpassword_li_input">
+
+                      <div class="cpassword_attcome">
+                
+            </div>
+            <div class="cpassword_attcome balNotice" style="display: none" data-bind="visible: password.displayMessage">
+                
+            </div>
+        </div>
+    </li>
+    <div class="name_in_dl name_inl_dl">
+    <li class="cpassword_li">
+               
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+                </li>
+
+  
+  <div class="actions">
+    <%= f.submit "登録確認画面へ" %>
+  </div>
+<% end %>
+<h3>既に登録済みの方</h3>
+<%= render "costomers/shared/links" %>
+
+

@@ -7,9 +7,31 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="sticky-footer.css" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrap">
+      <% unless admin_signed_in? %>
+        <%= render partial: 'layouts/header' %>
+      <% else %>
+        <%= render partial: '/admins/header' %>
+      <% end %>
+
+    <% unless admin_signed_in? %>
+      <div class="container content_costomer">
+    <% else %>
+      <div class="container content">
+    <% end %>
+      <p id="notice"><%= notice %></p>  
+      <%= yield %>
+    </div>
+  </div>
+
+  <% unless admin_signed_in? %>
+    <%= render partial: 'layouts/footer' %>
+  <% end %>
+  
   </body>
 </html>

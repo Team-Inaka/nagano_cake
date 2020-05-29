@@ -1,0 +1,37 @@
+<div class="row">
+	<div class='col-xs-10' style="width:100%;">
+		<h3>商品一覧</h3>
+		<!-- 商品一覧表示 -->
+		<%= link_to new_admins_product_path do %>
+			<span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true" style="font-size:50px;"></span>
+		<% end %>
+
+		<table class='table table-hover table-inverse'>
+			<thead>
+			    <tr class="active"> 
+			      <th>商品ID</th>
+			      <th>商品名</th>
+			      <th>税抜価格</th>
+			      <th>ジャンル</th>
+			      <th>ステータス</th>
+			      <th colspan="5"></th>
+			    </tr>
+			</thead>
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td><%= product.id %></td>
+						<td><%= link_to product.name,[:admins, product],class: "product_link" %></td>
+						<td><%= add_comma(product.notax_price) %></td>
+						<td><%= product.genre.name %></td>
+						<td><%= (product.is_valid==true) ? "販売中" : "売切れ" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<!-- ページネーション-->
+		<div style="text-align: center;">
+			<%= paginate @products %>
+		</div>
+	</div>
+</div>

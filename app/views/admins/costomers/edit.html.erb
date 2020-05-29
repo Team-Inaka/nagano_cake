@@ -1,0 +1,66 @@
+<div class="row">
+  <div class='col-xs-6'>
+ <h3 style='margin-bottom: 30px;'><%= "#{@costomer.family_name} #{@costomer.middle_name}" %>さんの会員情報編集</h3>
+<%= form_with(model: @costomer, url:admins_costomer_path(@costomer)) do |f| %>
+
+<span class="font">氏名</span>
+ <div class="field row">
+  <div class='col-xs-5'>
+   
+  <%= f.text_field :family_name, class: 'genre_name'%>
+  </div>
+
+   <div class="field">
+
+    <%= f.text_field :middle_name, autofocus: true, autocomplete: "middle_name", placeholder:"名" %>
+  </div>
+</div>
+
+<div class="field row">
+  <div class='col-xs-5'>
+      <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder:"セイ" %>
+  </div>
+
+  <div class="field">
+   
+    <%= f.text_field :middle_name_kana, autofocus: true, autocomplete: "middle_name_kana", placeholder:"メイ" %>
+  </div>
+</div>
+
+<span  class="font">郵便番号</span>
+  <div class="abc">
+   
+    <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode" %>
+  </div>
+
+<span class="font">住所</span>
+  <div class="abc">
+    
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+<span class="font">電話番号</span>
+  <div class="abc">
+   
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+  </div>
+
+  <span class="font">メールアドレス</span>
+  <div class="abc">
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+
+  <div class='col-xs-6'>
+    <%= f.radio_button :is_withdraw, :false, checked: "checked" %>
+    <%= f.label :is_withdraw,"有効" %>
+    <%= f.radio_button :is_withdraw, :true %>
+    <%= f.label :is_withdraw,"退会済み" %>
+ </div>
+  
+  <div class="actions">
+    <%= f.submit "変更を保存する", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
