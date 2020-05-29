@@ -19,7 +19,11 @@
         <%= render partial: '/admins/header' %>
       <% end %>
 
-    <div class="container content">
+    <% unless admin_signed_in? %>
+      <div class="container content_costomer">
+    <% else %>
+      <div class="container content">
+    <% end %>
       <p id="notice"><%= notice %></p>  
       <%= yield %>
     </div>
