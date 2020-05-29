@@ -6,6 +6,8 @@ class Costomer < ApplicationRecord
 
          has_many :shipping_addresses, dependent: :destroy
          has_many :carts, dependent: :destroy
+         has_many :orders, dependent: :destroy
+         enum is_withdraw: {退会:true, 有効:false}
 
           # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
@@ -27,10 +29,8 @@ class Costomer < ApplicationRecord
           end
 
 
-          enum is_withdraw: {退会:true, 有効:false}
 
 
-  # has_many :orders, dependent: :destroy 
 
 
 end
