@@ -9,7 +9,7 @@ class Costomers::ShippingAddressesController < ApplicationController
 		@shipping_address = ShippingAddress.new(shipping_address_params)
 		@shipping_address.costomer_id = current_costomer.id
 		if @shipping_address.save
-			flash[:notice] = "shipping_address was successfully created."
+			flash[:notice] = "配送先が登録されました"
 			redirect_to costomers_shipping_addresses_path
 		else
 			@shipping_addresses = ShippingAddress.all
@@ -21,7 +21,7 @@ class Costomers::ShippingAddressesController < ApplicationController
 		@shipping_address = ShippingAddress.find(params[:id])
 		@shipping_address.costomer_id = current_costomer.id
 		if @shipping_address.update(shipping_address_params)
-			flash[:notice] = "shipping_address was successfully updated."
+			flash[:notice] = "配送先が更新されました"
 			redirect_to costomers_shipping_addresses_path
 		else
 			render "edit"
@@ -36,7 +36,7 @@ class Costomers::ShippingAddressesController < ApplicationController
 		@shipping_address = ShippingAddress.find(params[:id])
 
 		if @shipping_address.destroy
-		    flash[:notice] = "shipping_address was successfully destroyed."
+		    flash[:notice] = "配送先を削除しました"
 			redirect_to costomers_shipping_addresses_path
 		else
 			@shipping_addresses = ShippingAddress.all

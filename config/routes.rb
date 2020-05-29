@@ -2,10 +2,17 @@ Rails.application.routes.draw do
   # resources :cart_items
   # resources :carts, except: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "orders/confirm" => "orders#confirm"
+  get "orders/complete" => "orders#complete"
   resources :orders,only:[:new,:create,:index,:show]
+
+
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
+
+
+
 # 3782311ff1cdb6778024e8fd68187ebed5c72e4d
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
@@ -41,8 +48,6 @@ Rails.application.routes.draw do
   # put "/costomers/:id/hide" => "costomers#hide", as: 'costomers_hide'
   # end
   namespace :costomers do
-    post "orders/confirm" => "orders#confirm"
-    get "orders/complete" => "orders#complete"
     resources :shipping_addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :costomers, only: [:show, :edit, :update]

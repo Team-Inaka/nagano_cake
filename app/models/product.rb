@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	attachment :image
 
-	has_many :cart_items
+	has_many :costomers_cart_items
 	before_destroy :referenced_by_cart_item
 
 private
