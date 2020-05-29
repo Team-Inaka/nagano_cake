@@ -47,12 +47,23 @@ header{
 }
 
 .content{
-	padding-top:80px;
+	padding-top:70px;
 	padding-bottom:20px;
+	margin-top:10px;
+}
+.content_costomer{
+	padding-top:30px;
+	padding-bottom:20px;
+	margin-top:20px;
 }
 .jumbotron { 
-	background:url(top_cake2.jpg) center no-repeat;
+	background:url(cake1.jpg) center no-repeat;
 	background-size: cover;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+.bg-color{
+	background:rgba(255,255,255,0.5);
 }
 .site-description{
 	margin-bottom:20px;
@@ -71,7 +82,7 @@ header{
 }
 .product_button_box{
 	position: relative;
-    height: 160px;
+    height: 140px;
 }
 .adm_product_button_box{
 	position: relative;
@@ -88,9 +99,7 @@ header{
 .soldout{
 	color:#EEEEEE;
 }
-.select_n_box{
-	height:34px;
-}
+
 /* ページネーションのデザイン */
 .pagination>li>a {          
   border: none;     /*枠線をなくす*/
@@ -126,6 +135,30 @@ header{
 /* アドミン用ボタン */
 
  .navbar-nav > li > a {
-   padding-top: 5px;
-   padding-bottom: 5px;
+   padding-top: 8px;
+   padding-bottom: 8px;
   }
+ .logo_user{
+ 	margin:5px 10px;
+ }
+
+ .logo_admin{
+ 	margin-top:10px;
+ }
+#cart_item_number{
+	height:35px;
+}
+.notebook-border {
+  border:solid 5px #f3efea;
+  width:75%;
+  margin:0px auto;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:10px 30px 40px 30px;
+}
+.welcome{
+	padding-right:80px;
+	padding-top:10px;
+}
+.pagination{
+	margin:0px;
+}
