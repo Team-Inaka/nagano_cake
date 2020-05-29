@@ -7,16 +7,16 @@ class Costomer < ApplicationRecord
          has_many :shipping_addresses, dependent: :destroy
          has_many :carts, dependent: :destroy
          has_many :orders, dependent: :destroy
-         enum is_withdraw: {退会:true, 有効:false}
 
+        validates :is_withdraw, inclusion: { in: [true, false] }
           # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
           #     super && (self.is_withdraw == false)
           # end
 
-          # # costomerのis_withdrawがfalseならtrueを返す
+          # costomerのis_withdrawがfalseならtrueを返す
           # def active_for_authentication?
-          #     super && (self.is_withdraw == false)
+          #     super && (self.is_withdraw == true)
           # end
 
           def full_name
@@ -27,8 +27,6 @@ class Costomer < ApplicationRecord
           def full_name_kana
           	  self.family_name_kana + self.middle_name_kana
           end
-
-
 
 
 

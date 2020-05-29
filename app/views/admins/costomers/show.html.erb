@@ -1,4 +1,5 @@
 
+
 <h3><%= "#{@costomer.family_name} #{@costomer.middle_name}" %>さんの会員詳細</h3>
 
 
@@ -14,6 +15,7 @@
 </th>
 <td>
 <%= @costomer.id %>
+<%= (@costomer.is_withdraw==true) ? "退会済み" : "有効会員" %>
 </td>
 </tr>  
 
@@ -71,8 +73,8 @@
 </td>
 </tr>
 
-</tbody></table>
-<%= link_to "編集する",edit_admins_costomer_path(@costomer.id) %>
-<%= link_to "注文履歴一覧を見る",admins_orders_path(@costomer.id) %>
 
+</tbody></table>
+<%= link_to "編集する",edit_admins_costomer_path(@costomer.id), class: 'btn btn-primary active' %>
+<%= link_to "注文履歴一覧を見る",admins_orders_path(@costomer.id), class: 'btn btn-primary active' %>
 

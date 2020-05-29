@@ -1,8 +1,11 @@
+<div class="row">
+  <div class='col-xs-6'>
 <%= form_with(model: @costomer, url: costomers_costomer_path(@costomer)) do |f| %>
-  <div class="nema_field">
-  <span class="font">名前</span>
-  <div class="field">
-    <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder:"姓"%>
+ <span class="font">氏名</span>
+ <div class="field row">
+  <div class='col-xs-5'>
+   
+  <%= f.text_field :family_name, class: 'genre_name'%>
   </div>
 
    <div class="field">
@@ -11,11 +14,9 @@
   </div>
 </div>
 
-<div class="under_name_field">
-  <span class="font">フリガナ</span>
-  <div class="field">
-  
-    <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder:"セイ" %>
+<div class="field row">
+  <div class='col-xs-5'>
+      <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder:"セイ" %>
   </div>
 
   <div class="field">
@@ -24,31 +25,33 @@
   </div>
 </div>
 
-  <div class="field">
-    <%= f.label :zipcode %><br />
+<span  class="font">郵便番号</span>
+  <div class="abc">
+   
     <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode" %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %><br />
+<span class="font">住所</span>
+  <div class="abc">
+    
     <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
-
-  <div class="field">
-    <%= f.label :phone_number %><br />
+<span class="font">電話番号</span>
+  <div class="abc">
+   
     <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
   </div>
 
-  
-  <div class="field">
-    <%= f.label :email %><br />
+  <span class="font">メールアドレス</span>
+  <div class="abc">
+    
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   
   <div class="actions">
-    <%= f.submit "編集内容を保存する" %>
+    <%= f.submit "編集内容を保存する", class: 'btn btn-primary'  %>
   </div>
 <% end %>
 
-<%= link_to "退会する", costomers_costomers_costomer_withdraw_path %>
+<%= link_to "退会する", costomers_costomers_costomer_withdraw_path, class: "btn btn-danger dropdown-toggle" %>

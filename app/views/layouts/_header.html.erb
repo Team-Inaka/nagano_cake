@@ -2,65 +2,41 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-3">
-    <nav class='nav navbar-nav navbar-left' >
-      <span><%= image_tag 'logo.png',:size =>'80x60' %></span>
-    </nav>
-      </div>
-
-  <div class="col-xs-9">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-      <% if costomer_signed_in? %>
-        <li>ようこそ、<%= current_costomer.full_name %>さん!</li>
-        <li><%= link_to 'カート', costomers_cart_items_path(current_costomer.id),class: 'btn btn-default' %></li>
-        <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
-        <li><%= link_to 'マイページ', costomers_costomer_path(current_costomer.id),class: 'btn btn-default' %></li>
-        <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete,class: 'btn btn-default' %></li>
-      <% elsif admin_signed_in? %>
-          <li>管理者（表示確認用）</li>
-          <li class="character_position"><%= link_to "商品一覧", admins_products_path,class: 'btn btn-default btn-xs head_bt' %></li>
-          <li><%= link_to "会員一覧", admins_costomers_path,class: 'btn btn-default btn-xs head_bt' %></li>          
-          <li><%= link_to "注文履歴一覧", admins_orders_path,class: 'btn btn-default btn-xs head_bt' %></li><!-- 要パス修正 -->
-          <li><%= link_to "ジャンル一覧", admins_genres_path,class: 'btn btn-default btn-xs head_bt' %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'btn btn-default btn-xs head_bt' %></li>
-      <% else %>
-        <li>ゲスト（表示確認用）</li>
-        <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
-        <li><%= link_to "新規登録", new_costomer_registration_path,class: 'btn btn-default' %></li>
-        <li><%= link_to "ログイン", new_costomer_session_path,class: 'btn btn-default' %></li>
-      <% end %>
-      </ul>
-
-      <% if admin_signed_in? %>
-      <div class="pull-right">
-        <div class="row">
-          <div class='col-xs-8'></div>
-          <div class='col-xs-4'>
-            <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">会員</a></li>
-                  <li><a href="#">商品</a></li>
-                  <li><a href="#">注文</a></li>
-                </ul>
-              </span>
-            </div>
+        <nav class='nav navbar-nav navbar-left' >
+          <div class="logo_user">
+            <%= link_to (root_path) do %>
+              <%= image_tag 'logo.png',:size =>'60x40' %>
+            <% end %>
           </div>
-        </div>
+
+      <div class="col-xs-9">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+          <% if costomer_signed_in? %>
+            <li >ようこそ、<%= current_costomer.full_name %>さん!</li>
+            <li><%= link_to 'カート', costomers_cart_items_path(current_costomer.id),class: 'btn btn-default' %></li>
+            <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
+            <li><%= link_to 'マイページ', costomers_costomer_path(current_costomer.id),class: 'btn btn-default' %></li>
+            <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete,class: 'btn btn-default' %></li>
+          <% elsif admin_signed_in? %>
+              <li>管理者（表示確認用）</li>
+              <li class="character_position"><%= link_to "商品一覧", admins_products_path,class: 'btn btn-default btn-xs head_bt' %></li>
+              <li><%= link_to "会員一覧", admins_costomers_path,class: 'btn btn-default btn-xs head_bt' %></li>          
+              <li><%= link_to "注文履歴一覧", admins_orders_path,class: 'btn btn-default btn-xs head_bt' %></li><!-- 要パス修正 -->
+              <li><%= link_to "ジャンル一覧", admins_genres_path,class: 'btn btn-default btn-xs head_bt' %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'btn btn-default btn-xs head_bt' %></li>
+          <% else %>
+            <li>ゲスト（表示確認用）</li>
+            <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
+            <li><%= link_to "新規登録", new_costomer_registration_path,class: 'btn btn-default' %></li>
+            <li><%= link_to "ログイン", new_costomer_session_path,class: 'btn btn-default' %></li>
+          <% end %>
+          </ul>
+
+        </nav>
       </div>
 
 
-      </div>
-      <% end %>
-
-    </nav>
-   </div>
+    </div>
   </div>
 </header>
