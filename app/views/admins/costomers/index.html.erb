@@ -18,7 +18,7 @@
   <th><%= "#{costomer.id}" %></th>
   <td><%=link_to "#{costomer.family_name} #{costomer.middle_name}",admins_costomer_path(costomer.id) %></td>
   <td><%= "#{costomer.email}" %></td>
-  <td><%= "#{costomer.is_withdraw} "%></td>
+  <td><%= (costomer.is_withdraw==true) ? "退会済み" : "有効" %></td>
 
 </tr>  
 

@@ -2,8 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-3">
+
     <nav class='nav navbar-nav navbar-left' >
-      <span><%= image_tag 'logo.png',:size =>'80x60' %></span>
+    <%= link_to (root_path) do %>
+      <%= image_tag 'logo.png',:size =>'60x40' %>
+    <% end %>
     </nav>
       </div>
 
@@ -11,7 +14,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
       <% if costomer_signed_in? %>
-      <li>ようこそ、<%= current_costomer.full_name %>さん!</li>
+      <li class="welcome">ようこそ、<%= current_costomer.full_name %>さん！</li>
         <li><%= link_to 'カート', costomers_cart_items_path(current_costomer.id),class: 'btn btn-default' %></li>
         <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
         <li><%= link_to 'マイページ', costomers_costomer_path(current_costomer.id),class: 'btn btn-default' %></li>
@@ -52,15 +55,9 @@
                 </ul>
               </span>
             </div>
-          </div>
-        </div>
-      </div>
+       <% end %>
+        
 
-
-      </div>
-      <% end %>
-
-    </nav>
-   </div>
+    </div>
   </div>
 </header>
