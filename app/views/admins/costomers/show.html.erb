@@ -2,7 +2,7 @@
 <h3>マイページ</h3>
 
 
-<%= "#{@costomer.family_name} #{@costomer.middle_name}" %>
+ <h3 style='margin-bottom: 30px;'><%= "#{@costomer.family_name} #{@costomer.middle_name}" %>さんの会員情報編集</h3>
 
 
 <table class="table">
@@ -14,6 +14,7 @@
 </th>
 <td>
 <%= @costomer.id %>
+<%= (@costomer.is_withdraw==true) ? "退会済み" : "有効会員" %>
 </td>
 </tr>  
 
@@ -70,6 +71,7 @@
   <%= @costomer.email %>
 </td>
 </tr>
+
 
 </tbody></table>
 <%= link_to "編集する",edit_admins_costomer_path(@costomer.id) %>
