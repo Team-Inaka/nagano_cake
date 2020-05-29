@@ -30,7 +30,7 @@ class Costomer < ApplicationRecord
           enum is_withdraw: {退会:true, 有効:false}
 
 
-  # has_many :orders, dependent: :destroy 
+  has_many :orders, dependent: :destroy 
 
 
 end

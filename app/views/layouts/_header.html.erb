@@ -11,7 +11,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
       <% if costomer_signed_in? %>
-        <li>会員（表示確認用）</li>
+      <li>ようこそ、<%= current_costomer.full_name %>さん!</li>
         <li><%= link_to 'カート', costomers_cart_items_path(current_costomer.id),class: 'btn btn-default' %></li>
         <li><%= link_to "商品一覧", costomers_products_path,class: 'btn btn-default' %></li>
         <li><%= link_to 'マイページ', costomers_costomer_path(current_costomer.id),class: 'btn btn-default' %></li>

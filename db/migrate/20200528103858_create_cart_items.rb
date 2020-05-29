@@ -5,6 +5,7 @@ class CreateCartItems < ActiveRecord::Migration[5.2]
       t.integer :product_id
       t.integer :cart_id
       t.integer :number, default: 1
+      t.integer :order_id
 
       t.timestamps
     end

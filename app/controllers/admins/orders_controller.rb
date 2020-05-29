@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+  before_action :if_not_admin
     def index
         @orders = Order.all
         @total_number = 0
@@ -18,6 +19,10 @@ class Admins::OrdersController < ApplicationController
       private
       def admin_ordered_products_params
         params.require(:order).permit(:order_status)
+      end
+
+      def if_not_admin
+        redirect_to new_admin_session_path unless admin_signed_in?
       end
 
 end

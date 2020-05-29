@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "orders/confirm" => "orders#confirm"
   get "orders/complete" => "orders#complete"
   resources :orders,only:[:new,:create,:index,:show]
+
   
   # namespace :admins do
   #   resources :ordered_products, only:[:index,:show]
@@ -25,6 +26,9 @@ Rails.application.routes.draw do
   # get 'costomers/index'
   # get 'costomers/show'
   # get 'costomers/edit'
+
+
+
 # 3782311ff1cdb6778024e8fd68187ebed5c72e4d
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
